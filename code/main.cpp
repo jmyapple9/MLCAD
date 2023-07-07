@@ -375,18 +375,87 @@ public:
 
 */
 
-void getValidPos(node n, int startX, int startY, int endX, int endY) {
-    for (int x = startX; x < endX; ++x)
-    {
-        for (int y = startY; y < endY; ++y)
-        {
-            
+pair<int,int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, int cascadeX, int cascadeY) {
+    for(int x = 0; x<site_map.size(); x++){
+        for(int y = 0; y<site_map[0].size(); y++){
+            bool available = true;
+            for(int i = 0; i<cascadeX; i++){
+                for(int j = 0; j<cascadeY; j++){
+                    if(site_map[x+i][y+j]!="0")
+                        available = false;
+                        break;
+                }
+            }
+            if(available){
+                for(int i = 0; i<cascadeX; i++){
+                    for(int j = 0; j<cascadeY; j++){
+                        site_map[x+i][y+j] = "1";
+                    }
+                }
+                return {x, y};
+            }
         }
     }
+    return {0, 0};
+}
+
+pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY) {
+    int startX = -1, startY = -1, endX, endY;
+
+    switch(n.site) {
+        case SLICE: 
+            startX = 0, startY = 0;
+            break;
+        case DSP:
+            for (auto x : DSP_map.x_pos) {
+                bool available = true;
+                for(int len = 0; len < n.cascadeSize.second; len++){
+                    if (x+len < rgstartX || x+len > rgendX)
+                        available = false;
+                }
+                if (available==true){
+                    startX = x;
+                    endX = x + n.cascadeSize.second;
+                    break;
+                }
+            }
+            for (auto y : DSP_map.y_pos) {
+                bool available = true;
+                for(int len = 0; len < n.cascadeSize.first; len++){
+                    if (y+len < rgstartY || y+len > rgendY)
+                        available = false;
+                }
+                if (available==true){
+                    startY = y;
+                    endY = y + n.cascadeSize.second;
+                    break;
+                }
+            }
+            return updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+            break;
+        case BRAM: 
+            startX = 0, startY = 0;
+            break;
+        case URAM: 
+            startX = 0, startY = 0;
+            break;
+        case IO: 
+            startX = 0, startY = 0;
+            break;
+        default:
+            break;
+    }
+
+    if (startX == -1) cout << "Error, uninitialize startX\n";
+    if (startY == -1) cout << "Error, uninitialize startY\n";
+    
+    return {0, 0};
 }
 
 void placement()
 {
+    cout<< "Placement..." << endl;
+    out_file.open("./test.pl");
     for (auto node : nodes)
     {
         // SLICE
@@ -444,11 +513,15 @@ void placement()
                 startY = rgc.rect[i][1];
                 endX = rgc.rect[i][2];
                 endY = rgc.rect[i][3];
-                getValidPos(node, startX, startY, endX, endY);
+                auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
+                out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
             }
+        } else {
+            auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
+            out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
         }
-        getValidPos(node, startX, startY, endX, endY);
     }
+    out_file.close();
 }
 
 void logInput()

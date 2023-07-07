@@ -186,7 +186,7 @@ node::node()
     rg_constraint = -1;
     site = -1;
     isCascade = false;
-    cascadeSize = pair<int, int>{-1, -1};
+    cascadeSize = pair<int, int>{1, 1};
     fixed = false;
 }
 site_SLICE::site_SLICE() {
