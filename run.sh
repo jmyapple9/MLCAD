@@ -1,7 +1,7 @@
 echo "Start running macro placement!"
 
 cd ./code
-g++ main.cpp
+g++ main.cpp -O3
 ./a.out
 
 echo "Finish parsing benchmark!"

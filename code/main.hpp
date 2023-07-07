@@ -15,6 +15,9 @@ public:
     int site_idx;
     int bel_idx;
     int rg_constraint;
+    int site;
+    bool isCascade;
+    pair<int, int> cascadeSize; // (row, column)
     bool fixed;
     node();
 };
@@ -86,14 +89,62 @@ public:
 class site_BRAM
 {
 public:
-    vector<int> x_pos; 
+    vector<int> x_pos; // change to 2D array
     vector<int> y_pos;
     vector<vector<string>> RAMB36E2;
     site_BRAM();
 };
 
+// x = 11, y = 0 BRAM <-----
+// x = 11, y = 5 BRAM
+// x = 11, y = 10 BRAM
+// ...
+// x = 12, y = 0 BRAM
+
+// x_pos: 11, 12, 13
+// y_pos: 0, 5, ..., 295
+
+// next_available_idx_x: 0
+// next_available_idx_y: 0
+
+// site_bram[0][0]
+// next_available_idx_y++
+// next_available_idx_y = size_y (60) -> next_available_idx_x ++, next_available_idx_y = 0
+
+// type = BRAM -> x = 11, y = 0 ~ 295 -> vector(60, "0")-> RAMB36E2
+// type = BRAM -> x = 12, y = 0 ~ 295 -> vector(60, "0")-> RAMB36E2 
+// type = BRAM -> x = 13, y = 0 ~ 295 -> vector(60, "0")-> RAMB36E2
+
 // URAM has 1 URAM288 resource
 // In each column, the y position will be like 0 -> 15 -> 30 -> 45.
+
+/* 
+brute force version pseudocode
+
+def getValidPos(macro):
+    for(x: 0~205):
+        for(y: 0~299):
+            full = false
+            for map in allMap:
+                full = full || map[x][y];
+                if full:
+                    break;
+            if !full:
+                return x, y
+
+def putMacro(macro, x, y):
+    if macro.type in IO:
+        IO_map[x][y]=true
+    else if macro.type in URAM:
+        URAM_map[x][y]=true
+    else if...
+
+
+for macro in nodes:
+    x, y = getValidPos(macro)
+    putMacro(macro, x, y)
+
+ */
 class site_URAM
 {
 public:
@@ -118,7 +169,7 @@ class region_constraint // box/rect <xLo> <yLo> <xHi> <yHi>
 {
 public:
     int ID, num_boxes;
-    vector<vector<int>> rect; // e.g. rect 0 0 211 60 => rect[0][0] = 0, rect[0][1] = 0, rect[0][2] = 21, rect[0][3] = 60
+    vector<vector<int>> rect; // e.g. rect 0 0 211 60 => rect[0][0] = 0, rect[0][1] = 0, rect[0][2] = 211, rect[0][3] = 60
     region_constraint();
 };
 
@@ -133,6 +184,9 @@ node::node()
     site_idx = -1;
     column_idx = -1;
     rg_constraint = -1;
+    site = -1;
+    isCascade = false;
+    cascadeSize = pair<int, int>{-1, -1};
     fixed = false;
 }
 site_SLICE::site_SLICE() {
