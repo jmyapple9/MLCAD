@@ -5,6 +5,8 @@
 .config
 .dotnet
 .local
+.gitconfig
+.sudo_as_admin_successful
 .profile
 .viminfo
 .vscode
