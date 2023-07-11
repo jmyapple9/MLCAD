@@ -140,10 +140,10 @@ void parse_lib()
 void parse_scl()
 {
     cout << "Parse_scl ..." << endl;
-    in_file.open(filePath + "2" + "/design.scl");
+    in_file.open(filePath + to_string(designId) + "/design.scl");
     string input, SITE;
     int x_pos, y_pos;
-    while (input != "####################################################################################")
+    while (input != "###############################################################k##############################")
     {
         in_file >> input;
     }
@@ -221,17 +221,18 @@ void parse_region()
     in_file.open(filePath + to_string(designId) + "/design.regions");
     string input, input2;
     int ID, num_b, x_lo, y_lo, x_hi, y_hi;
-    while (input != "###############################################################k##############################")
-    {
-        in_file >> input;
-    }
     for (int i = 0; i < 78; ++i)
     {
         in_file >> input;
     }
     while (1)
     {
-        in_file >> input >> input2;
+        in_file >> input;
+        if(in_file.eof()){
+            in_file.close();
+            return;
+        }
+        in_file >> input2;
         if (input == "InstanceToRegionConstraintMapping")
             break;
         in_file >> ID >> num_b;
@@ -254,6 +255,7 @@ void parse_region()
         if (input == "InstanceToRegionConstraintMapping")
             break;
         in_file >> ID;
+        // cout << input << endl;
         for (int i = 0; i < nodes.size(); ++i)
         {
             if (nodes[i].name == input)
@@ -308,23 +310,21 @@ void parse_cascade_inst()
     }
     in_file.close();
     parse_cascade_shape();
-    in_file.open(filePath + to_string(designId) + "/design.cascade_shape_instances");
+    in_file.open("./design.cascade_shape_instances");
     string input, name, tmp, type;
     int column, row;
-    while (input != "###############################################################k##############################")
+    while (in_file >> type)    //TYPE
     {
-        in_file >> input;
-    }
-    while (in_file >> input)
-    {
-        bool flag = false;
-        in_file >> name >> row >> column >> type;
-        in_file >> input;
+        bool flag;
+        flag = false;
+        in_file >> row >> column >> name;
+
+        in_file >> input; // eat "BEGIN"
         vector<string> buf;
         for (int i = 0; i < row * column; i++)
         {
             in_file >> tmp;
-            if (tmp == "...")
+            if (tmp == "END")
             {
                 flag = true;
                 break;
@@ -340,10 +340,11 @@ void parse_cascade_inst()
                 string ans = temp.substr(0, 40) + to_string(i) + temp.substr(41, leng - 41);
                 buf.push_back(ans);
             }
-            string ans = temp.substr(0, 40) + "60" + temp.substr(41, leng - 41);
-            buf.push_back(ans);
         }
-        in_file >> input;
+        else
+        {
+            in_file >> input;
+        }
         cascade_inst new_inst;
         new_inst.name = name;
         new_inst.type = type;
@@ -389,7 +390,7 @@ pair<int,int> updatePos(vector<vector<string>> &site_map, int startX, int startY
             if(available){
                 for(int i = 0; i<cascadeX; i++){
                     for(int j = 0; j<cascadeY; j++){
-                        site_map[x+i][y+j] = "1";
+                        site_map[x+i][y+j]="1";
                     }
                 }
                 return {x, y};
@@ -399,12 +400,117 @@ pair<int,int> updatePos(vector<vector<string>> &site_map, int startX, int startY
     return {0, 0};
 }
 
+pair<int,int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY) {
+    for(int x = 0; x<site_map.size(); x++){
+        for(int y = 0; y<site_map[0].size(); y++){
+            for(int z = 0; z<site_map[0][0].size(); z++){
+                if (site_map[x][y][z] == "0" ) {
+                    site_map[x][y][z] = "1";
+                    return {x, y};
+                }
+            }
+        }
+    }
+    return {0, 0};
+}
+
 pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY) {
+    pair<int, int> validXY(-1, -1);
     int startX = -1, startY = -1, endX, endY;
 
     switch(n.site) {
         case SLICE: 
-            startX = 0, startY = 0;
+            if (n.type == "CARRY8") {
+                for (auto x : SLICE_map.x_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.second; len++){
+                        if (x+len < rgstartX || x+len > rgendX)
+                            available = false;
+                    }
+                    if (available==true){
+                        startX = x;
+                        endX = x + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                for (auto y : SLICE_map.y_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.first; len++){
+                        if (y+len < rgstartY || y+len > rgendY)
+                            available = false;
+                    }
+                    if (available==true){
+                        startY = y;
+                        endY = y + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                validXY = updatePos(SLICE_map.CARRY8, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+                validXY.first = SLICE_map.x_pos[validXY.first];
+                validXY.second = SLICE_map.y_pos[validXY.second];
+            }
+            else if (n.type == "LUT1" || 
+                    n.type == "LUT2" ||
+                    n.type == "LUT3" ||
+                    n.type == "LUT4" ||
+                    n.type == "LUT5" ||
+                    n.type == "LUT6") {
+                for (auto x : SLICE_map.x_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.second; len++){
+                        if (x+len < rgstartX || x+len > rgendX)
+                            available = false;
+                    }
+                    if (available==true){
+                        startX = x;
+                        endX = x + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                for (auto y : SLICE_map.y_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.first; len++){
+                        if (y+len < rgstartY || y+len > rgendY)
+                            available = false;
+                    }
+                    if (available==true){
+                        startY = y;
+                        endY = y + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                validXY = updatePos3D(SLICE_map.LUT, startX, startY, endX, endY);
+                validXY.first = SLICE_map.x_pos[validXY.first];
+                validXY.second = SLICE_map.y_pos[validXY.second];
+            } else {
+                for (auto x : SLICE_map.x_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.second; len++){
+                        if (x+len < rgstartX || x+len > rgendX)
+                            available = false;
+                    }
+                    if (available==true){
+                        startX = x;
+                        endX = x + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                for (auto y : SLICE_map.y_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.first; len++){
+                        if (y+len < rgstartY || y+len > rgendY)
+                            available = false;
+                    }
+                    if (available==true){
+                        startY = y;
+                        endY = y + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                validXY = updatePos3D(SLICE_map.FF, startX, startY, endX, endY);
+                validXY.first = SLICE_map.x_pos[validXY.first];
+                validXY.second = SLICE_map.y_pos[validXY.second];
+            }
             break;
         case DSP:
             for (auto x : DSP_map.x_pos) {
@@ -431,16 +537,96 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     break;
                 }
             }
-            return updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+            validXY = updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+            validXY.first = DSP_map.x_pos[validXY.first];
+            validXY.second = DSP_map.y_pos[validXY.second];
             break;
-        case BRAM: 
-            startX = 0, startY = 0;
+        case BRAM:
+            for (auto x : BRAM_map.x_pos) {
+                bool available = true;
+                for(int len = 0; len < n.cascadeSize.second; len++){
+                    if (x+len < rgstartX || x+len > rgendX)
+                        available = false;
+                }
+                if (available==true){
+                    startX = x;
+                    endX = x + n.cascadeSize.second;
+                    break;
+                }
+            }
+            for (auto y : BRAM_map.y_pos) {
+                bool available = true;
+                for(int len = 0; len < n.cascadeSize.first; len++){
+                    if (y+len < rgstartY || y+len > rgendY)
+                        available = false;
+                }
+                if (available==true){
+                    startY = y;
+                    endY = y + n.cascadeSize.second;
+                    break;
+                }
+            }
+            validXY = updatePos(BRAM_map.RAMB36E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+            validXY.first = BRAM_map.x_pos[validXY.first];
+            validXY.second = BRAM_map.y_pos[validXY.second];
             break;
         case URAM: 
-            startX = 0, startY = 0;
+            for (auto x : URAM_map.x_pos) {
+                bool available = true;
+                for(int len = 0; len < n.cascadeSize.second; len++){
+                    if (x+len < rgstartX || x+len > rgendX)
+                        available = false;
+                }
+                if (available==true){
+                    startX = x;
+                    endX = x + n.cascadeSize.second;
+                    break;
+                }
+            }
+            for (auto y : URAM_map.y_pos) {
+                bool available = true;
+                for(int len = 0; len < n.cascadeSize.first; len++){
+                    if (y+len < rgstartY || y+len > rgendY)
+                        available = false;
+                }
+                if (available==true){
+                    startY = y;
+                    endY = y + n.cascadeSize.second;
+                    break;
+                }
+            }
+            validXY = updatePos(URAM_map.RURAM288, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+            validXY.first = URAM_map.x_pos[validXY.first];
+            validXY.second = URAM_map.y_pos[validXY.second];
             break;
-        case IO: 
-            startX = 0, startY = 0;
+        case IO:
+            for (auto x : IO_map.x_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.second; len++){
+                        if (x+len < rgstartX || x+len > rgendX)
+                            available = false;
+                    }
+                    if (available==true){
+                        startX = x;
+                        endX = x + n.cascadeSize.second;
+                        break;
+                    }
+                }
+                for (auto y : IO_map.y_pos) {
+                    bool available = true;
+                    for(int len = 0; len < n.cascadeSize.first; len++){
+                        if (y+len < rgstartY || y+len > rgendY)
+                            available = false;
+                    }
+                    if (available==true){
+                        startY = y;
+                        endY = y + n.cascadeSize.second;
+                        break;
+                    }
+                }
+            validXY = updatePos3D(IO_map.IO, startX, startY, endX, endY);
+            validXY.first = IO_map.x_pos[validXY.first];
+            validXY.second = IO_map.y_pos[validXY.second];
             break;
         default:
             break;
@@ -449,7 +635,11 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
     if (startX == -1) cout << "Error, uninitialize startX\n";
     if (startY == -1) cout << "Error, uninitialize startY\n";
     
-    return {0, 0};
+    if(validXY.first == -1 && validXY.second == -1){
+        cout << n.name <<endl;
+    }
+
+    return {validXY.first, validXY.second};
 }
 
 void placement()
@@ -495,7 +685,7 @@ void placement()
         }
 
         for (auto inst : c_inst) {
-            if (node.name == inst.name) {
+            if (node.name.find(node.name) != string::npos) {
                 node.isCascade = true;
                 node.cascadeSize.first = inst.row;
                 node.cascadeSize.second = inst.column;
@@ -505,6 +695,7 @@ void placement()
         int startX = 0, startY = 0;
         int endX = 206;
         int endY = 300;
+        // int validX, validY;
         if (node.rg_constraint != -1)
         {
             auto rgc = r_constraint[node.rg_constraint];
@@ -518,6 +709,7 @@ void placement()
             }
         } else {
             auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
+            // if (validX == -1 || validY == -1) continue;
             out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
         }
     }
@@ -590,7 +782,7 @@ int main()
         chrono::steady_clock::time_point end = chrono::steady_clock::now();
         cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
         placement();
-        logInput();
+        // logInput();
     }
     return 0;
 }
