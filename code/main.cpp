@@ -103,7 +103,7 @@ void parse_nets()
     }
 
     int idx = 0;
-    while (in_file >> input)
+    while (in_file >> input) // eat "net"
     {
         bool flag = false;
         string netname;
@@ -221,18 +221,18 @@ void parse_region()
     in_file.open(filePath + to_string(designId) + "/design.regions");
     string input, input2;
     int ID, num_b, x_lo, y_lo, x_hi, y_hi;
-    for (int i = 0; i < 78; ++i)
+    for (int i = 0; i < 78; ++i) // eat comments
     {
         in_file >> input;
     }
     while (1)
     {
-        in_file >> input;
+        in_file >> input; // eat "RegionConstraint"
         if(in_file.eof()){
             in_file.close();
             return;
         }
-        in_file >> input2;
+        in_file >> input2; // "BEGIN"
         if (input == "InstanceToRegionConstraintMapping")
             break;
         in_file >> ID >> num_b;
@@ -246,7 +246,7 @@ void parse_region()
         tmp.push_back(x_hi);
         tmp.push_back(y_hi);
         rgc.rect.push_back(tmp);
-        in_file >> input >> input2;
+        in_file >> input >> input2; // eat "RegionConstraint END"
         r_constraint.push_back(rgc);
     }
     while (1)
@@ -255,7 +255,6 @@ void parse_region()
         if (input == "InstanceToRegionConstraintMapping")
             break;
         in_file >> ID;
-        // cout << input << endl;
         for (int i = 0; i < nodes.size(); ++i)
         {
             if (nodes[i].name == input)
@@ -357,13 +356,13 @@ void parse_cascade_inst()
 }
 void parse_design()
 {
+    parse_cascade_inst();
     parse_nodes();
     parse_pl();
     parse_nets();
     parse_lib();
     parse_scl();
     parse_region();
-    parse_cascade_inst();
 }
 
 /*
@@ -441,7 +440,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     }
                     if (available==true){
                         startY = y;
-                        endY = y + n.cascadeSize.second;
+                        endY = y + n.cascadeSize.first;
                         break;
                     }
                 }
@@ -475,7 +474,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     }
                     if (available==true){
                         startY = y;
-                        endY = y + n.cascadeSize.second;
+                        endY = y + n.cascadeSize.first;
                         break;
                     }
                 }
@@ -503,7 +502,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     }
                     if (available==true){
                         startY = y;
-                        endY = y + n.cascadeSize.second;
+                        endY = y + n.cascadeSize.first;
                         break;
                     }
                 }
@@ -533,7 +532,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                 }
                 if (available==true){
                     startY = y;
-                    endY = y + n.cascadeSize.second;
+                    endY = y + n.cascadeSize.first;
                     break;
                 }
             }
@@ -562,7 +561,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                 }
                 if (available==true){
                     startY = y;
-                    endY = y + n.cascadeSize.second;
+                    endY = y + n.cascadeSize.first;
                     break;
                 }
             }
@@ -591,7 +590,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                 }
                 if (available==true){
                     startY = y;
-                    endY = y + n.cascadeSize.second;
+                    endY = y + n.cascadeSize.first;
                     break;
                 }
             }
@@ -620,7 +619,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     }
                     if (available==true){
                         startY = y;
-                        endY = y + n.cascadeSize.second;
+                        endY = y + n.cascadeSize.first;
                         break;
                     }
                 }
@@ -635,9 +634,9 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
     if (startX == -1) cout << "Error, uninitialize startX\n";
     if (startY == -1) cout << "Error, uninitialize startY\n";
     
-    if(validXY.first == -1 && validXY.second == -1){
+    /* if(validXY.first == -1 && validXY.second == -1){
         cout << n.name <<endl;
-    }
+    } */
 
     return {validXY.first, validXY.second};
 }
@@ -705,7 +704,12 @@ void placement()
                 endX = rgc.rect[i][2];
                 endY = rgc.rect[i][3];
                 auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
-                out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
+                
+                if(validX == -1 || validY == -1) continue;
+                else{
+                    out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
+                    break;
+                }
             }
         } else {
             auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
