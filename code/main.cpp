@@ -38,6 +38,27 @@ enum siteMap
 };
 int node_num;
 
+bool EndWith(string str, string tar)
+{
+    //  std::string str = "example_inst";
+
+    // Check if the string ends with "_inst"
+    if (str.length() >= tar.length() && str.substr(str.length() - tar.length()) == tar)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+void logCascade()
+{
+    // for (auto n : nodes)
+    // {
+    //     cout << "Node Name: " << n.name << endl;
+    // }
+}
 //////////// parsing functions ///////////////////
 void parse_nodes()
 {
@@ -56,8 +77,83 @@ void parse_nodes()
         tmp.name = input;
         in_file >> type;
         tmp.type = type;
-        // cout << "Node name: " << tmp.name << "; Node type: " <<  tmp.type << "; idx = " << ++idx << endl;
-        nodes.push_back(tmp);
+        // if (tmp.name.find("CASCADE") != string::npos)
+        // {
+        //     for (auto c : c_inst)
+        //     {
+        //         if (tmp.name.find(c.name) != string::npos)
+        //         {
+        //             tmp.cascadeSize.first = c.row;
+        //             tmp.cascadeSize.second = c.column;
+        //             nodes.push_back(tmp);
+        //             break;
+        //         }
+        //     }
+        // } else nodes.push_back(tmp);
+
+        if (tmp.name.find("CASCADE") != string::npos)
+        {
+            if (tmp.name.find("BRAM") != string::npos)
+            {
+                if (EndWith(tmp.name, "_inst"))
+                {
+                    for (auto c : c_inst)
+                    {
+                        if (tmp.name.find(c.name) != string::npos)
+                        {
+                            tmp.cascadeSize.first = c.row;
+                            tmp.cascadeSize.second = c.column;
+                            nodes.push_back(tmp);
+                            break;
+                        }
+                    }
+                }
+                // else, skip those non-reference inst in cascade inst
+            }
+            else if (tmp.name.find("URAM") != string::npos)
+            {
+                if (EndWith(tmp.name, "_inst1"))
+                {
+                    for (auto c : c_inst)
+                    {
+                        if (tmp.name.find(c.name) != string::npos)
+                        {
+                            tmp.cascadeSize.first = c.row;
+                            tmp.cascadeSize.second = c.column;
+                            nodes.push_back(tmp);
+                            break;
+                        }
+                    }
+                }
+                // else, skip those non-reference inst in cascade inst
+            }
+            else if (tmp.name.find("DSP") != string::npos)
+            {
+                if (EndWith(tmp.name, "i_primitive") && tmp.name.find("_instance_name1/") != string::npos)
+                {
+                    for (auto c : c_inst)
+                    {
+                        if (tmp.name.find(c.name) != string::npos)
+                        {
+                            tmp.cascadeSize.first = c.row;
+                            tmp.cascadeSize.second = c.column;
+                            nodes.push_back(tmp);
+                            break;
+                        }
+                    }
+                }
+                // else, skip those non-reference inst in cascade inst
+            }
+            else
+            {
+                // cout << "Error! node name with CASCADE but isn't BRAM, URAM or DSP" <<endl;
+                continue;
+            }
+        }
+        else
+        {
+            nodes.push_back(tmp); // non-cascade inst
+        }
     }
     node_num = nodes.size();
     in_file.close();
@@ -228,7 +324,8 @@ void parse_region()
     while (1)
     {
         in_file >> input; // eat "RegionConstraint"
-        if(in_file.eof()){
+        if (in_file.eof())
+        {
             in_file.close();
             return;
         }
@@ -309,10 +406,10 @@ void parse_cascade_inst()
     }
     in_file.close();
     parse_cascade_shape();
-    in_file.open("./design.cascade_shape_instances");
+    in_file.open(filePath + to_string(designId) + "/design.cascade_shape_instances");
     string input, name, tmp, type;
     int column, row;
-    while (in_file >> type)    //TYPE
+    while (in_file >> type) // TYPE
     {
         bool flag;
         flag = false;
@@ -358,38 +455,36 @@ void parse_design()
 {
     parse_cascade_inst();
     parse_nodes();
+    logCascade();
     parse_pl();
     parse_nets();
     parse_lib();
     parse_scl();
     parse_region();
 }
-
-/*
-
-class site {
-public:
-    string type;
-    vector<pair<string, int>> content; // pair<resource name, >
-}
-
-*/
-
-pair<int,int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, int cascadeX, int cascadeY) {
-    for(int x = 0; x<site_map.size(); x++){
-        for(int y = 0; y<site_map[0].size(); y++){
+pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, int cascadeX, int cascadeY)
+{
+    for (int x = 0; x < site_map.size(); x++)
+    {
+        for (int y = 0; y < site_map[0].size(); y++)
+        {
             bool available = true;
-            for(int i = 0; i<cascadeX; i++){
-                for(int j = 0; j<cascadeY; j++){
-                    if(site_map[x+i][y+j]!="0")
+            for (int i = 0; i < cascadeX; i++)
+            {
+                for (int j = 0; j < cascadeY; j++)
+                {
+                    if (site_map[x + i][y + j] != "0")
                         available = false;
-                        break;
+                    break;
                 }
             }
-            if(available){
-                for(int i = 0; i<cascadeX; i++){
-                    for(int j = 0; j<cascadeY; j++){
-                        site_map[x+i][y+j]="1";
+            if (available)
+            {
+                for (int i = 0; i < cascadeX; i++)
+                {
+                    for (int j = 0; j < cascadeY; j++)
+                    {
+                        site_map[x + i][y + j] = "1";
                     }
                 }
                 return {x, y};
@@ -398,12 +493,16 @@ pair<int,int> updatePos(vector<vector<string>> &site_map, int startX, int startY
     }
     return {0, 0};
 }
-
-pair<int,int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY) {
-    for(int x = 0; x<site_map.size(); x++){
-        for(int y = 0; y<site_map[0].size(); y++){
-            for(int z = 0; z<site_map[0][0].size(); z++){
-                if (site_map[x][y][z] == "0" ) {
+pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY)
+{
+    for (int x = 0; x < site_map.size(); x++)
+    {
+        for (int y = 0; y < site_map[0].size(); y++)
+        {
+            for (int z = 0; z < site_map[0][0].size(); z++)
+            {
+                if (site_map[x][y][z] == "0")
+                {
                     site_map[x][y][z] = "1";
                     return {x, y};
                 }
@@ -412,241 +511,291 @@ pair<int,int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, 
     }
     return {0, 0};
 }
-
-pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY) {
+pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY)
+{
     pair<int, int> validXY(-1, -1);
     int startX = -1, startY = -1, endX, endY;
 
-    switch(n.site) {
-        case SLICE: 
-            if (n.type == "CARRY8") {
-                for (auto x : SLICE_map.x_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.second; len++){
-                        if (x+len < rgstartX || x+len > rgendX)
-                            available = false;
-                    }
-                    if (available==true){
-                        startX = x;
-                        endX = x + n.cascadeSize.second;
-                        break;
-                    }
-                }
-                for (auto y : SLICE_map.y_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.first; len++){
-                        if (y+len < rgstartY || y+len > rgendY)
-                            available = false;
-                    }
-                    if (available==true){
-                        startY = y;
-                        endY = y + n.cascadeSize.first;
-                        break;
-                    }
-                }
-                validXY = updatePos(SLICE_map.CARRY8, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
-                validXY.first = SLICE_map.x_pos[validXY.first];
-                validXY.second = SLICE_map.y_pos[validXY.second];
-            }
-            else if (n.type == "LUT1" || 
-                    n.type == "LUT2" ||
-                    n.type == "LUT3" ||
-                    n.type == "LUT4" ||
-                    n.type == "LUT5" ||
-                    n.type == "LUT6") {
-                for (auto x : SLICE_map.x_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.second; len++){
-                        if (x+len < rgstartX || x+len > rgendX)
-                            available = false;
-                    }
-                    if (available==true){
-                        startX = x;
-                        endX = x + n.cascadeSize.second;
-                        break;
-                    }
-                }
-                for (auto y : SLICE_map.y_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.first; len++){
-                        if (y+len < rgstartY || y+len > rgendY)
-                            available = false;
-                    }
-                    if (available==true){
-                        startY = y;
-                        endY = y + n.cascadeSize.first;
-                        break;
-                    }
-                }
-                validXY = updatePos3D(SLICE_map.LUT, startX, startY, endX, endY);
-                validXY.first = SLICE_map.x_pos[validXY.first];
-                validXY.second = SLICE_map.y_pos[validXY.second];
-            } else {
-                for (auto x : SLICE_map.x_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.second; len++){
-                        if (x+len < rgstartX || x+len > rgendX)
-                            available = false;
-                    }
-                    if (available==true){
-                        startX = x;
-                        endX = x + n.cascadeSize.second;
-                        break;
-                    }
-                }
-                for (auto y : SLICE_map.y_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.first; len++){
-                        if (y+len < rgstartY || y+len > rgendY)
-                            available = false;
-                    }
-                    if (available==true){
-                        startY = y;
-                        endY = y + n.cascadeSize.first;
-                        break;
-                    }
-                }
-                validXY = updatePos3D(SLICE_map.FF, startX, startY, endX, endY);
-                validXY.first = SLICE_map.x_pos[validXY.first];
-                validXY.second = SLICE_map.y_pos[validXY.second];
-            }
-            break;
-        case DSP:
-            for (auto x : DSP_map.x_pos) {
+    switch (n.site)
+    {
+    case SLICE:
+        if (n.type == "CARRY8")
+        {
+            for (auto x : SLICE_map.x_pos)
+            {
                 bool available = true;
-                for(int len = 0; len < n.cascadeSize.second; len++){
-                    if (x+len < rgstartX || x+len > rgendX)
+                for (int len = 0; len < n.cascadeSize.second; len++)
+                {
+                    if (x + len < rgstartX || x + len > rgendX)
                         available = false;
                 }
-                if (available==true){
+                if (available == true)
+                {
                     startX = x;
                     endX = x + n.cascadeSize.second;
                     break;
                 }
             }
-            for (auto y : DSP_map.y_pos) {
+            for (auto y : SLICE_map.y_pos)
+            {
                 bool available = true;
-                for(int len = 0; len < n.cascadeSize.first; len++){
-                    if (y+len < rgstartY || y+len > rgendY)
+                for (int len = 0; len < n.cascadeSize.first; len++)
+                {
+                    if (y + len < rgstartY || y + len > rgendY)
                         available = false;
                 }
-                if (available==true){
+                if (available == true)
+                {
                     startY = y;
                     endY = y + n.cascadeSize.first;
                     break;
                 }
             }
-            validXY = updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
-            validXY.first = DSP_map.x_pos[validXY.first];
-            validXY.second = DSP_map.y_pos[validXY.second];
-            break;
-        case BRAM:
-            for (auto x : BRAM_map.x_pos) {
+            validXY = updatePos(SLICE_map.CARRY8, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+            validXY.first = SLICE_map.x_pos[validXY.first];
+            validXY.second = SLICE_map.y_pos[validXY.second];
+        }
+        else if (n.type == "LUT1" ||
+                 n.type == "LUT2" ||
+                 n.type == "LUT3" ||
+                 n.type == "LUT4" ||
+                 n.type == "LUT5" ||
+                 n.type == "LUT6")
+        {
+            for (auto x : SLICE_map.x_pos)
+            {
                 bool available = true;
-                for(int len = 0; len < n.cascadeSize.second; len++){
-                    if (x+len < rgstartX || x+len > rgendX)
+                for (int len = 0; len < n.cascadeSize.second; len++)
+                {
+                    if (x + len < rgstartX || x + len > rgendX)
                         available = false;
                 }
-                if (available==true){
+                if (available == true)
+                {
                     startX = x;
                     endX = x + n.cascadeSize.second;
                     break;
                 }
             }
-            for (auto y : BRAM_map.y_pos) {
+            for (auto y : SLICE_map.y_pos)
+            {
                 bool available = true;
-                for(int len = 0; len < n.cascadeSize.first; len++){
-                    if (y+len < rgstartY || y+len > rgendY)
+                for (int len = 0; len < n.cascadeSize.first; len++)
+                {
+                    if (y + len < rgstartY || y + len > rgendY)
                         available = false;
                 }
-                if (available==true){
+                if (available == true)
+                {
                     startY = y;
                     endY = y + n.cascadeSize.first;
                     break;
                 }
             }
-            validXY = updatePos(BRAM_map.RAMB36E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
-            validXY.first = BRAM_map.x_pos[validXY.first];
-            validXY.second = BRAM_map.y_pos[validXY.second];
-            break;
-        case URAM: 
-            for (auto x : URAM_map.x_pos) {
+            validXY = updatePos3D(SLICE_map.LUT, startX, startY, endX, endY);
+            validXY.first = SLICE_map.x_pos[validXY.first];
+            validXY.second = SLICE_map.y_pos[validXY.second];
+        }
+        else
+        { // FDRE
+            for (auto x : SLICE_map.x_pos)
+            {
                 bool available = true;
-                for(int len = 0; len < n.cascadeSize.second; len++){
-                    if (x+len < rgstartX || x+len > rgendX)
+                for (int len = 0; len < n.cascadeSize.second; len++)
+                {
+                    if (x + len < rgstartX || x + len > rgendX)
                         available = false;
                 }
-                if (available==true){
+                if (available == true)
+                {
                     startX = x;
                     endX = x + n.cascadeSize.second;
                     break;
                 }
             }
-            for (auto y : URAM_map.y_pos) {
+            for (auto y : SLICE_map.y_pos)
+            {
                 bool available = true;
-                for(int len = 0; len < n.cascadeSize.first; len++){
-                    if (y+len < rgstartY || y+len > rgendY)
+                for (int len = 0; len < n.cascadeSize.first; len++)
+                {
+                    if (y + len < rgstartY || y + len > rgendY)
                         available = false;
                 }
-                if (available==true){
+                if (available == true)
+                {
                     startY = y;
                     endY = y + n.cascadeSize.first;
                     break;
                 }
             }
-            validXY = updatePos(URAM_map.RURAM288, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
-            validXY.first = URAM_map.x_pos[validXY.first];
-            validXY.second = URAM_map.y_pos[validXY.second];
-            break;
-        case IO:
-            for (auto x : IO_map.x_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.second; len++){
-                        if (x+len < rgstartX || x+len > rgendX)
-                            available = false;
-                    }
-                    if (available==true){
-                        startX = x;
-                        endX = x + n.cascadeSize.second;
-                        break;
-                    }
-                }
-                for (auto y : IO_map.y_pos) {
-                    bool available = true;
-                    for(int len = 0; len < n.cascadeSize.first; len++){
-                        if (y+len < rgstartY || y+len > rgendY)
-                            available = false;
-                    }
-                    if (available==true){
-                        startY = y;
-                        endY = y + n.cascadeSize.first;
-                        break;
-                    }
-                }
-            validXY = updatePos3D(IO_map.IO, startX, startY, endX, endY);
-            validXY.first = IO_map.x_pos[validXY.first];
-            validXY.second = IO_map.y_pos[validXY.second];
-            break;
-        default:
-            break;
+            validXY = updatePos3D(SLICE_map.FF, startX, startY, endX, endY);
+            validXY.first = SLICE_map.x_pos[validXY.first];
+            validXY.second = SLICE_map.y_pos[validXY.second];
+        }
+        break;
+    case DSP:
+        for (auto x : DSP_map.x_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.second; len++)
+            {
+                if (x + len < rgstartX || x + len > rgendX)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startX = x;
+                endX = x + n.cascadeSize.second;
+                break;
+            }
+        }
+        for (auto y : DSP_map.y_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.first; len++)
+            {
+                if (y + len < rgstartY || y + len > rgendY)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startY = y;
+                endY = y + n.cascadeSize.first;
+                break;
+            }
+        }
+        validXY = updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+        validXY.first = DSP_map.x_pos[validXY.first];
+        validXY.second = DSP_map.y_pos[validXY.second];
+        break;
+    case BRAM:
+        for (auto x : BRAM_map.x_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.second; len++)
+            {
+                if (x + len < rgstartX || x + len > rgendX)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startX = x;
+                endX = x + n.cascadeSize.second;
+                break;
+            }
+        }
+        for (auto y : BRAM_map.y_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.first; len++)
+            {
+                if (y + len < rgstartY || y + len > rgendY)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startY = y;
+                endY = y + n.cascadeSize.first;
+                break;
+            }
+        }
+        validXY = updatePos(BRAM_map.RAMB36E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+        validXY.first = BRAM_map.x_pos[validXY.first];
+        validXY.second = BRAM_map.y_pos[validXY.second];
+        break;
+    case URAM:
+        for (auto x : URAM_map.x_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.second; len++)
+            {
+                if (x + len < rgstartX || x + len > rgendX)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startX = x;
+                endX = x + n.cascadeSize.second;
+                break;
+            }
+        }
+        for (auto y : URAM_map.y_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.first; len++)
+            {
+                if (y + len < rgstartY || y + len > rgendY)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startY = y;
+                endY = y + n.cascadeSize.first;
+                break;
+            }
+        }
+        validXY = updatePos(URAM_map.RURAM288, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first);
+        validXY.first = URAM_map.x_pos[validXY.first];
+        validXY.second = URAM_map.y_pos[validXY.second];
+        break;
+    case IO:
+        for (auto x : IO_map.x_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.second; len++)
+            {
+                if (x + len < rgstartX || x + len > rgendX)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startX = x;
+                endX = x + n.cascadeSize.second;
+                break;
+            }
+        }
+        for (auto y : IO_map.y_pos)
+        {
+            bool available = true;
+            for (int len = 0; len < n.cascadeSize.first; len++)
+            {
+                if (y + len < rgstartY || y + len > rgendY)
+                    available = false;
+            }
+            if (available == true)
+            {
+                startY = y;
+                endY = y + n.cascadeSize.first;
+                break;
+            }
+        }
+        validXY = updatePos3D(IO_map.IO, startX, startY, endX, endY);
+        validXY.first = IO_map.x_pos[validXY.first];
+        validXY.second = IO_map.y_pos[validXY.second];
+        break;
+    default:
+        break;
     }
 
-    if (startX == -1) cout << "Error, uninitialize startX\n";
-    if (startY == -1) cout << "Error, uninitialize startY\n";
-    
+    if (startX == -1)
+        cout << "Error, uninitialize startX\n";
+    if (startY == -1)
+        cout << "Error, uninitialize startY\n";
+
     /* if(validXY.first == -1 && validXY.second == -1){
         cout << n.name <<endl;
     } */
 
     return {validXY.first, validXY.second};
 }
-
 void placement()
 {
-    cout<< "Placement..." << endl;
-    out_file.open("./test.pl");
-    for (auto node : nodes)
+    cout << "Placement..." << endl;
+    out_file.open(filePath + to_string(designId) + "/answer.pl");
+    // for (auto node : nodes)
+    for (auto n = nodes.rbegin(); n != nodes.rend(); ++n)
     {
+        auto node = *n;
         // SLICE
         if (node.type == "LUT1" ||
             node.type == "LUT2" ||
@@ -683,13 +832,13 @@ void placement()
             node.site = IO;
         }
 
-        for (auto inst : c_inst) {
+        /* for (auto inst : c_inst) {
             if (node.name.find(node.name) != string::npos) {
                 node.isCascade = true;
                 node.cascadeSize.first = inst.row;
                 node.cascadeSize.second = inst.column;
             }
-        }
+        } */
 
         int startX = 0, startY = 0;
         int endX = 206;
@@ -698,20 +847,25 @@ void placement()
         if (node.rg_constraint != -1)
         {
             auto rgc = r_constraint[node.rg_constraint];
-            for (int i=0; i<rgc.num_boxes; ++i) {
+            for (int i = 0; i < rgc.num_boxes; ++i)
+            {
                 startX = rgc.rect[i][0];
                 startY = rgc.rect[i][1];
                 endX = rgc.rect[i][2];
                 endY = rgc.rect[i][3];
                 auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
-                
-                if(validX == -1 || validY == -1) continue;
-                else{
+
+                if (validX == -1 || validY == -1)
+                    continue;
+                else
+                {
                     out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
                     break;
                 }
             }
-        } else {
+        }
+        else
+        {
             auto [validX, validY] = getValidPos(node, startX, startY, endX, endY);
             // if (validX == -1 || validY == -1) continue;
             out_file << node.name << " " << validX << " " << validY << " " << 0 << endl;
@@ -719,7 +873,6 @@ void placement()
     }
     out_file.close();
 }
-
 void logInput()
 {
     int logNum = 10;
@@ -768,25 +921,24 @@ void logInput()
     //     cout << "Cascade lib: " << c_lib[i].lib[0] << endl;
     // }
 }
-
 int main()
 {
-    for (; designId < 225; ++designId)
+    cout << "Current design Id: " << designId << endl;
+    chrono::steady_clock::time_point begin = chrono::steady_clock::now();
+    in_file.open(filePath + to_string(designId));
+    if (in_file.fail())
     {
-        cout << "Current design Id: " << designId << endl;
-        chrono::steady_clock::time_point begin = chrono::steady_clock::now();
-        in_file.open(filePath + to_string(designId));
-        if (in_file.fail())
-        {
-            in_file.close();
-            continue;
-        }
         in_file.close();
-        parse_design();
-        chrono::steady_clock::time_point end = chrono::steady_clock::now();
-        cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
-        placement();
-        // logInput();
+        cout << "This is a invalid design Id" << endl;
+        return 0;
     }
+    in_file.close();
+    parse_design();
+    chrono::steady_clock::time_point end = chrono::steady_clock::now();
+    cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
+    begin = chrono::steady_clock::now();
+    placement();
+    end = chrono::steady_clock::now();
+    cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
     return 0;
 }
