@@ -8,6 +8,7 @@
 #include <string>
 #include <vector>
 #include <chrono>
+#include <cstdlib>
 
 using namespace std;
 
@@ -20,6 +21,7 @@ ifstream in_file;
 ofstream out_file;
 vector<cascade_lib> c_lib;
 vector<cascade_inst> c_inst;
+vector<node> macros;
 vector<node> nodes;
 vector<net> nets;
 vector<region_constraint> r_constraint;
@@ -156,6 +158,24 @@ void parse_nodes()
         }
     }
     node_num = nodes.size();
+    in_file.close();
+}
+void parse_macros(){
+    cout << "Parse macros ..." << endl;
+    in_file.open(filePath + to_string(designId) + "/design.macros");
+    string input, name, tmp;
+    int column, row;
+    while (in_file >> input)
+    {
+        node target;
+        for(int i = nodes.size()-1; i>=0; i--){
+            if(nodes[i].name == input){
+                target = nodes[i];
+                macros.push_back(target);
+                break;
+            }
+        }
+    }
     in_file.close();
 }
 void parse_pl()
@@ -455,6 +475,7 @@ void parse_design()
 {
     parse_cascade_inst();
     parse_nodes();
+    parse_macros();
     logCascade();
     parse_pl();
     parse_nets();
@@ -791,9 +812,9 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
 void placement()
 {
     cout << "Placement..." << endl;
-    out_file.open(filePath + to_string(designId) + "/answer.pl");
+    out_file.open(filePath + to_string(designId) + "/macroplacement.pl");
     // for (auto node : nodes)
-    for (auto n = nodes.rbegin(); n != nodes.rend(); ++n)
+    for (auto n = macros.rbegin(); n != macros.rend(); ++n)
     {
         auto node = *n;
         // SLICE
@@ -921,8 +942,9 @@ void logInput()
     //     cout << "Cascade lib: " << c_lib[i].lib[0] << endl;
     // }
 }
-int main()
+int main(int argc, char* argv[])
 {
+    designId = atoi(argv[1]);
     cout << "Current design Id: " << designId << endl;
     chrono::steady_clock::time_point begin = chrono::steady_clock::now();
     in_file.open(filePath + to_string(designId));
