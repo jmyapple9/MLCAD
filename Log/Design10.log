@@ -1,0 +1,344 @@
+#-----------------------------------------------------------
+# Vivado v2021.1 (64-bit)
+# SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+# IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+# Start of session at: Fri Jul 14 23:52:59 2023
+# Process ID: 20462
+# Current directory: /home/aaa/Desktop/all_testcases/Design_10
+# Command line: vivado -mode tcl -so place_route.tcl
+# Log file: /home/aaa/Desktop/all_testcases/Design_10/vivado.log
+# Journal file: /home/aaa/Desktop/all_testcases/Design_10/vivado.jou
+#-----------------------------------------------------------
+source place_route.tcl
+# open_checkpoint ./design.dcp
+Command: open_checkpoint ./design.dcp
+
+Starting open_checkpoint Task
+
+Time (s): cpu = 00:00:00.11 ; elapsed = 00:00:00.06 . Memory (MB): peak = 2533.016 ; gain = 0.000 ; free physical = 6318 ; free virtual = 25210
+INFO: [Device 21-403] Loading part xcvu3p-ffvc1517-1-i
+Netlist sorting complete. Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 3349.531 ; gain = 2.000 ; free physical = 4616 ; free virtual = 23599
+INFO: [Netlist 29-17] Analyzing 2100 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 17 CPU seconds
+WARNING: [Netlist 29-43] Netlist 'Design_1_70_TDB' is not ideal for floorplanning, since the cellview 'Design_1_70_TDB' defined in file 'Design_1_70_TDB.v' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2021.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 4528.258 ; gain = 0.000 ; free physical = 3769 ; free virtual = 22754
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2100 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 1824 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 276 instances
+
+INFO: [Project 1-604] Checkpoint was created with Vivado v2021.1 (64-bit) build 3247384
+open_checkpoint: Time (s): cpu = 00:01:49 ; elapsed = 00:01:58 . Memory (MB): peak = 4528.258 ; gain = 1995.242 ; free physical = 3768 ; free virtual = 22753
+# set_param place.timingDriven false
+# place_design  -macro_placement macroplacement.pl -verbose
+Command: place_design -macro_placement macroplacement.pl -verbose
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu3p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu3p'
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.06 . Memory (MB): peak = 6991.922 ; gain = 0.000 ; free physical = 1311 ; free virtual = 20303
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: ff4c7508
+
+Time (s): cpu = 00:00:00.17 ; elapsed = 00:00:00.16 . Memory (MB): peak = 6991.922 ; gain = 0.000 ; free physical = 1311 ; free virtual = 20303
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.07 . Memory (MB): peak = 6991.922 ; gain = 0.000 ; free physical = 1311 ; free virtual = 20303
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 17d9f6927
+
+Time (s): cpu = 00:08:00 ; elapsed = 00:07:51 . Memory (MB): peak = 7100.207 ; gain = 108.285 ; free physical = 1208 ; free virtual = 20215
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 1da4f59d8
+
+Time (s): cpu = 00:08:25 ; elapsed = 00:08:17 . Memory (MB): peak = 7551.402 ; gain = 559.480 ; free physical = 776 ; free virtual = 19783
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 1da4f59d8
+
+Time (s): cpu = 00:08:26 ; elapsed = 00:08:18 . Memory (MB): peak = 7551.402 ; gain = 559.480 ; free physical = 771 ; free virtual = 19778
+Phase 1 Placer Initialization | Checksum: 1da4f59d8
+
+Time (s): cpu = 00:08:27 ; elapsed = 00:08:18 . Memory (MB): peak = 7551.402 ; gain = 559.480 ; free physical = 734 ; free virtual = 19741
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 1a5410178
+
+Time (s): cpu = 00:19:41 ; elapsed = 00:13:10 . Memory (MB): peak = 8504.340 ; gain = 1512.418 ; free physical = 645 ; free virtual = 19194
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 20705335a
+
+Time (s): cpu = 00:20:08 ; elapsed = 00:13:38 . Memory (MB): peak = 8504.340 ; gain = 1512.418 ; free physical = 571 ; free virtual = 19122
+
+Phase 2.1.1.3 PBP: Discrete Incremental
+Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 1d8c45630
+
+Time (s): cpu = 00:20:17 ; elapsed = 00:13:47 . Memory (MB): peak = 8504.340 ; gain = 1512.418 ; free physical = 558 ; free virtual = 19110
+
+Phase 2.1.1.4 PBP: Compute Congestion
+Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 1d8c45630
+
+Time (s): cpu = 00:20:27 ; elapsed = 00:13:52 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 533 ; free virtual = 19084
+
+Phase 2.1.1.5 PBP: Macro Placement
+Phase 2.1.1.5 PBP: Macro Placement | Checksum: 20fe40169
+
+Time (s): cpu = 00:20:49 ; elapsed = 00:14:14 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 350 ; free virtual = 18901
+
+Phase 2.1.1.6 PBP: Add part constraints
+Phase 2.1.1.6 PBP: Add part constraints | Checksum: 20fe40169
+
+Time (s): cpu = 00:20:50 ; elapsed = 00:14:15 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 350 ; free virtual = 18901
+Phase 2.1.1 Partition Driven Placement | Checksum: 20fe40169
+
+Time (s): cpu = 00:20:52 ; elapsed = 00:14:18 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 663 ; free virtual = 19215
+Phase 2.1 Floorplanning | Checksum: 20fe40169
+
+Time (s): cpu = 00:20:53 ; elapsed = 00:14:19 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 655 ; free virtual = 19207
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 20fe40169
+
+Time (s): cpu = 00:20:55 ; elapsed = 00:14:21 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 653 ; free virtual = 19204
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 20fe40169
+
+Time (s): cpu = 00:20:56 ; elapsed = 00:14:22 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 653 ; free virtual = 19204
+INFO: [Place 30-2096]  
+INFO: [Place 30-950] Reading placement information from file: macroplacement.pl.
+INFO: [Place 30-949] Number of instances to place 2048.
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y74'. DSP_config_DSP_inst59_inst_bosz/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y74 rpm (2048, 384)  tile (349, 118) DSP_X56Y185 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y75'. DSP_config_DSP_inst59_inst_bosm/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y75 rpm (2048, 385)  tile (349, 118) DSP_X56Y185 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y76'. DSP_config_DSP_inst59_inst_bosf/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y76 rpm (2048, 394)  tile (349, 113) DSP_X56Y190 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y77'. DSP_config_DSP_inst59_inst_bosb/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y77 rpm (2048, 395)  tile (349, 113) DSP_X56Y190 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y79'. DSP_config_DSP_inst59_inst_booz/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y79 rpm (2048, 405)  tile (349, 108) DSP_X56Y195 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y80'. DSP_config_DSP_inst59_inst_boov/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y80 rpm (2048, 414)  tile (349, 103) DSP_X56Y200 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y81'. DSP_config_DSP_inst59_inst_boos/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y81 rpm (2048, 415)  tile (349, 103) DSP_X56Y200 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y82'. DSP_config_DSP_inst59_inst_booo/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y82 rpm (2048, 424)  tile (349, 98) DSP_X56Y205 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y83'. DSP_config_DSP_inst59_inst_boom/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y83 rpm (2048, 425)  tile (349, 98) DSP_X56Y205 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y84'. DSP_config_DSP_inst59_inst_bool/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y84 rpm (2048, 436)  tile (349, 92) DSP_X56Y210 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y85'. DSP_config_DSP_inst59_inst_booh/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y85 rpm (2048, 437)  tile (349, 92) DSP_X56Y210 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y86'. DSP_config_DSP_inst59_inst_boof/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y86 rpm (2048, 446)  tile (349, 87) DSP_X56Y215 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y87'. DSP_config_DSP_inst59_inst_booe/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y87 rpm (2048, 447)  tile (349, 87) DSP_X56Y215 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y88'. DSP_config_DSP_inst59_inst_boob/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y88 rpm (2048, 456)  tile (349, 82) DSP_X56Y220 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y90'. DSP_config_DSP_inst59_inst_bomz/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y90 rpm (2048, 466)  tile (349, 77) DSP_X56Y225 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y91'. DSP_config_DSP_inst59_inst_bomv/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y91 rpm (2048, 467)  tile (349, 77) DSP_X56Y225 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y92'. DSP_config_DSP_inst59_inst_boms/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y92 rpm (2048, 476)  tile (349, 72) DSP_X56Y230 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y93'. DSP_config_DSP_inst59_inst_bomo/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y93 rpm (2048, 477)  tile (349, 72) DSP_X56Y230 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y94'. DSP_config_DSP_inst59_inst_bomm/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y94 rpm (2048, 486)  tile (349, 67) DSP_X56Y235 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X10Y95'. DSP_config_DSP_inst59_inst_boml/my_dsp/DSP_ALU_INST placed on site DSP48E2_X10Y95 rpm (2048, 487)  tile (349, 67) DSP_X56Y235 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y0'. DSP_config_DSP_inst59_inst_bohe/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y0 rpm (2152, 2)  tile (362, 309) DSP_X59Y0 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y1'. DSP_config_DSP_inst59_inst_bohb/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y1 rpm (2152, 3)  tile (362, 309) DSP_X59Y0 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y10'. DSP_config_DSP_inst59_inst_boff/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y10 rpm (2152, 52)  tile (362, 284) DSP_X59Y25 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y11'. DSP_config_DSP_inst59_inst_bofe/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y11 rpm (2152, 53)  tile (362, 284) DSP_X59Y25 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y12'. DSP_config_DSP_inst59_inst_bofb/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y12 rpm (2152, 64)  tile (362, 278) DSP_X59Y30 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y14'. DSP_config_DSP_inst59_inst_boez/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y14 rpm (2152, 74)  tile (362, 273) DSP_X59Y35 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y15'. DSP_config_DSP_inst59_inst_boev/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y15 rpm (2152, 75)  tile (362, 273) DSP_X59Y35 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y16'. DSP_config_DSP_inst59_inst_boes/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y16 rpm (2152, 84)  tile (362, 268) DSP_X59Y40 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y17'. DSP_config_DSP_inst59_inst_boeo/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y17 rpm (2152, 85)  tile (362, 268) DSP_X59Y40 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y18'. DSP_config_DSP_inst59_inst_boem/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y18 rpm (2152, 94)  tile (362, 263) DSP_X59Y45 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y19'. DSP_config_DSP_inst59_inst_boel/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y19 rpm (2152, 95)  tile (362, 263) DSP_X59Y45 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y20'. DSP_config_DSP_inst59_inst_boeh/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y20 rpm (2152, 104)  tile (362, 258) DSP_X59Y50 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y21'. DSP_config_DSP_inst59_inst_boef/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y21 rpm (2152, 105)  tile (362, 258) DSP_X59Y50 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y22'. DSP_config_DSP_inst59_inst_boee/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y22 rpm (2152, 114)  tile (362, 253) DSP_X59Y55 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y23'. DSP_config_DSP_inst59_inst_boeb/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y23 rpm (2152, 115)  tile (362, 253) DSP_X59Y55 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y26'. DSP_config_DSP_inst59_inst_bobv/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y26 rpm (2152, 136)  tile (362, 242) DSP_X59Y65 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y3'. DSP_config_DSP_inst59_inst_bofz/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y3 rpm (2152, 13)  tile (362, 304) DSP_X59Y5 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y4'. DSP_config_DSP_inst59_inst_bofv/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y4 rpm (2152, 22)  tile (362, 299) DSP_X59Y10 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y5'. DSP_config_DSP_inst59_inst_bofs/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y5 rpm (2152, 23)  tile (362, 299) DSP_X59Y10 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y6'. DSP_config_DSP_inst59_inst_bofo/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y6 rpm (2152, 32)  tile (362, 294) DSP_X59Y15 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y7'. DSP_config_DSP_inst59_inst_bofm/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y7 rpm (2152, 33)  tile (362, 294) DSP_X59Y15 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y8'. DSP_config_DSP_inst59_inst_bofl/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y8 rpm (2152, 42)  tile (362, 289) DSP_X59Y20 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X11Y9'. DSP_config_DSP_inst59_inst_bofh/my_dsp/DSP_ALU_INST placed on site DSP48E2_X11Y9 rpm (2152, 43)  tile (362, 289) DSP_X59Y20 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X14Y32'. DSP_config_DSP_inst59_inst_bbzz/my_dsp/DSP_ALU_INST placed on site DSP48E2_X14Y32 rpm (2728, 166)  tile (480, 227) DSP_X75Y80 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X14Y36'. DSP_config_DSP_inst59_inst_bbzm/my_dsp/DSP_ALU_INST placed on site DSP48E2_X14Y36 rpm (2728, 188)  tile (480, 216) DSP_X75Y90 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X14Y38'. DSP_config_DSP_inst59_inst_bbzh/my_dsp/DSP_ALU_INST placed on site DSP48E2_X14Y38 rpm (2728, 198)  tile (480, 211) DSP_X75Y95 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X14Y39'. DSP_config_DSP_inst59_inst_bbzf/my_dsp/DSP_ALU_INST placed on site DSP48E2_X14Y39 rpm (2728, 199)  tile (480, 211) DSP_X75Y95 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X14Y41'. DSP_config_DSP_inst59_inst_bbzb/my_dsp/DSP_ALU_INST placed on site DSP48E2_X14Y41 rpm (2728, 209)  tile (480, 206) DSP_X75Y100 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y100'. DSP_config_DSP_inst59_inst_bzmf/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y100 rpm (1872, 518)  tile (327, 51) DSP_X51Y250 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y101'. DSP_config_DSP_inst59_inst_bzme/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y101 rpm (1872, 519)  tile (327, 51) DSP_X51Y250 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y102'. DSP_config_DSP_inst59_inst_bzmb/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y102 rpm (1872, 528)  tile (327, 46) DSP_X51Y255 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y96'. DSP_config_DSP_inst59_inst_bzmo/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y96 rpm (1872, 498)  tile (327, 61) DSP_X51Y240 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y97'. DSP_config_DSP_inst59_inst_bzmm/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y97 rpm (1872, 499)  tile (327, 61) DSP_X51Y240 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y98'. DSP_config_DSP_inst59_inst_bzml/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y98 rpm (1872, 508)  tile (327, 56) DSP_X51Y245 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'DSP48E2_X9Y99'. DSP_config_DSP_inst59_inst_bzmh/my_dsp/DSP_ALU_INST placed on site DSP48E2_X9Y99 rpm (1872, 509)  tile (327, 56) DSP_X51Y245 is outside its area constraints.
+. The instances in this site are: my_dsp, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y48'. BRAM_config_BRAM_SDP_inst404_inst_mvo/my_sdpram placed on site RAMB36_X2Y48 rpm (720, 500)  tile (137, 61) BRAM_X19Y240 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y49'. BRAM_config_BRAM_SDP_inst404_inst_mvm/my_sdpram placed on site RAMB36_X2Y49 rpm (720, 510)  tile (137, 56) BRAM_X19Y245 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y50'. BRAM_config_BRAM_SDP_inst404_inst_mvl/my_sdpram placed on site RAMB36_X2Y50 rpm (720, 520)  tile (137, 51) BRAM_X19Y250 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y51'. BRAM_config_BRAM_SDP_inst404_inst_mvh/my_sdpram placed on site RAMB36_X2Y51 rpm (720, 530)  tile (137, 46) BRAM_X19Y255 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y52'. BRAM_config_BRAM_SDP_inst404_inst_mvf/my_sdpram placed on site RAMB36_X2Y52 rpm (720, 540)  tile (137, 41) BRAM_X19Y260 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y53'. BRAM_config_BRAM_SDP_inst404_inst_mve/my_sdpram placed on site RAMB36_X2Y53 rpm (720, 550)  tile (137, 36) BRAM_X19Y265 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y54'. BRAM_config_BRAM_SDP_inst404_inst_mvb/my_sdpram placed on site RAMB36_X2Y54 rpm (720, 562)  tile (137, 30) BRAM_X19Y270 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y56'. BRAM_config_BRAM_SDP_inst404_inst_msz/my_sdpram placed on site RAMB36_X2Y56 rpm (720, 582)  tile (137, 20) BRAM_X19Y280 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y57'. BRAM_config_BRAM_SDP_inst404_inst_msv/my_sdpram placed on site RAMB36_X2Y57 rpm (720, 592)  tile (137, 15) BRAM_X19Y285 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y58'. BRAM_config_BRAM_SDP_inst404_inst_mss/my_sdpram placed on site RAMB36_X2Y58 rpm (720, 602)  tile (137, 10) BRAM_X19Y290 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X2Y59'. BRAM_config_BRAM_SDP_inst404_inst_mso/my_sdpram placed on site RAMB36_X2Y59 rpm (720, 612)  tile (137, 5) BRAM_X19Y295 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y10'. BRAM_config_BRAM_SDP_inst404_inst_hhs/my_sdpram placed on site RAMB36_X5Y10 rpm (1904, 106)  tile (331, 258) BRAM_X53Y50 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y11'. BRAM_config_BRAM_SDP_inst404_inst_hho/my_sdpram placed on site RAMB36_X5Y11 rpm (1904, 116)  tile (331, 253) BRAM_X53Y55 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y12'. BRAM_config_BRAM_SDP_inst404_inst_hhm/my_sdpram placed on site RAMB36_X5Y12 rpm (1904, 128)  tile (331, 247) BRAM_X53Y60 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y13'. BRAM_config_BRAM_SDP_inst404_inst_hhl/my_sdpram placed on site RAMB36_X5Y13 rpm (1904, 138)  tile (331, 242) BRAM_X53Y65 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y14'. BRAM_config_BRAM_SDP_inst404_inst_hhh/my_sdpram placed on site RAMB36_X5Y14 rpm (1904, 148)  tile (331, 237) BRAM_X53Y70 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y15'. BRAM_config_BRAM_SDP_inst404_inst_hhf/my_sdpram placed on site RAMB36_X5Y15 rpm (1904, 158)  tile (331, 232) BRAM_X53Y75 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y16'. BRAM_config_BRAM_SDP_inst404_inst_hhe/my_sdpram placed on site RAMB36_X5Y16 rpm (1904, 168)  tile (331, 227) BRAM_X53Y80 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y17'. BRAM_config_BRAM_SDP_inst404_inst_hhb/my_sdpram placed on site RAMB36_X5Y17 rpm (1904, 178)  tile (331, 222) BRAM_X53Y85 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y20'. BRAM_config_BRAM_SDP_inst404_inst_hfv/my_sdpram placed on site RAMB36_X5Y20 rpm (1904, 210)  tile (331, 206) BRAM_X53Y100 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y21'. BRAM_config_BRAM_SDP_inst404_inst_hfs/my_sdpram placed on site RAMB36_X5Y21 rpm (1904, 220)  tile (331, 201) BRAM_X53Y105 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y24'. BRAM_config_BRAM_SDP_inst404_inst_hfl/my_sdpram placed on site RAMB36_X5Y24 rpm (1904, 252)  tile (331, 185) BRAM_X53Y120 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y8'. BRAM_config_BRAM_SDP_inst404_inst_hhz/my_sdpram placed on site RAMB36_X5Y8 rpm (1904, 86)  tile (331, 268) BRAM_X53Y40 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X5Y9'. BRAM_config_BRAM_SDP_inst404_inst_hhv/my_sdpram placed on site RAMB36_X5Y9 rpm (1904, 96)  tile (331, 263) BRAM_X53Y45 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y27'. BRAM_config_BRAM_SDP_inst404_inst_fmz/my_sdpram placed on site RAMB36_X6Y27 rpm (1976, 282)  tile (340, 170) BRAM_X55Y135 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y28'. BRAM_config_BRAM_SDP_inst404_inst_fmv/my_sdpram placed on site RAMB36_X6Y28 rpm (1976, 292)  tile (340, 165) BRAM_X55Y140 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y29'. BRAM_config_BRAM_SDP_inst404_inst_fms/my_sdpram placed on site RAMB36_X6Y29 rpm (1976, 302)  tile (340, 160) BRAM_X55Y145 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y30'. BRAM_config_BRAM_SDP_inst404_inst_fmo/my_sdpram placed on site RAMB36_X6Y30 rpm (1976, 314)  tile (340, 154) BRAM_X55Y150 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y31'. BRAM_config_BRAM_SDP_inst404_inst_fmm/my_sdpram placed on site RAMB36_X6Y31 rpm (1976, 324)  tile (340, 149) BRAM_X55Y155 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y32'. BRAM_config_BRAM_SDP_inst404_inst_fml/my_sdpram placed on site RAMB36_X6Y32 rpm (1976, 334)  tile (340, 144) BRAM_X55Y160 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y33'. BRAM_config_BRAM_SDP_inst404_inst_fmh/my_sdpram placed on site RAMB36_X6Y33 rpm (1976, 344)  tile (340, 139) BRAM_X55Y165 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y34'. BRAM_config_BRAM_SDP_inst404_inst_fmf/my_sdpram placed on site RAMB36_X6Y34 rpm (1976, 354)  tile (340, 134) BRAM_X55Y170 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y35'. BRAM_config_BRAM_SDP_inst404_inst_fme/my_sdpram placed on site RAMB36_X6Y35 rpm (1976, 364)  tile (340, 129) BRAM_X55Y175 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X6Y36'. BRAM_config_BRAM_SDP_inst404_inst_fmb/my_sdpram placed on site RAMB36_X6Y36 rpm (1976, 376)  tile (340, 123) BRAM_X55Y180 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X7Y22'. BRAM_config_BRAM_SDP_inst404_inst_fbz/my_sdpram placed on site RAMB36_X7Y22 rpm (2424, 230)  tile (396, 196) BRAM_X68Y110 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X7Y25'. BRAM_config_BRAM_SDP_inst404_inst_fbo/my_sdpram placed on site RAMB36_X7Y25 rpm (2424, 262)  tile (396, 180) BRAM_X68Y125 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X7Y26'. BRAM_config_BRAM_SDP_inst404_inst_fbm/my_sdpram placed on site RAMB36_X7Y26 rpm (2424, 272)  tile (396, 175) BRAM_X68Y130 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X7Y28'. BRAM_config_BRAM_SDP_inst404_inst_fbh/my_sdpram placed on site RAMB36_X7Y28 rpm (2424, 292)  tile (396, 165) BRAM_X68Y140 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X7Y29'. BRAM_config_BRAM_SDP_inst404_inst_fbf/my_sdpram placed on site RAMB36_X7Y29 rpm (2424, 302)  tile (396, 160) BRAM_X68Y145 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+CRITICAL WARNING: [Place 30-943] Failed to place instances in site 'RAMB36_X7Y31'. BRAM_config_BRAM_SDP_inst404_inst_fbb/my_sdpram placed on site RAMB36_X7Y31 rpm (2424, 324)  tile (396, 149) BRAM_X68Y155 is outside its area constraints.
+. The instances in this site are: my_sdpram, .
+INFO: [#UNDEF] Number of sites successfully placed '1953'.
+INFO: [Place 30-948] Number of instances successfully placed 1953.
+INFO: [#UNDEF] Failed to place 95 macros
+Phase 2 Global Placement | Checksum: d27917c0
+
+Time (s): cpu = 00:21:16 ; elapsed = 00:14:42 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 473 ; free virtual = 19024
+ERROR: [Place 30-99] Placer failed with error: 'Failed to place macro locations.'
+Please review all ERROR, CRITICAL WARNING, and WARNING messages during placement to understand the cause for failure.
+Ending Placer Task | Checksum: 811f66b7
+
+Time (s): cpu = 00:21:16 ; elapsed = 00:14:42 . Memory (MB): peak = 8536.355 ; gain = 1544.434 ; free physical = 618 ; free virtual = 19169
+INFO: [Common 17-83] Releasing license: Implementation
+16 Infos, 0 Warnings, 95 Critical Warnings and 2 Errors encountered.
+place_design failed
+ERROR: [Common 17-69] Command failed: Placer could not place all instances
+exit
+INFO: [Common 17-206] Exiting Vivado at Sat Jul 15 00:13:00 2023...

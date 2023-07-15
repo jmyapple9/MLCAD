@@ -160,7 +160,8 @@ void parse_nodes()
     node_num = nodes.size();
     in_file.close();
 }
-void parse_macros(){
+void parse_macros()
+{
     cout << "Parse macros ..." << endl;
     in_file.open(filePath + to_string(designId) + "/design.macros");
     string input, name, tmp;
@@ -168,8 +169,10 @@ void parse_macros(){
     while (in_file >> input)
     {
         node target;
-        for(int i = nodes.size()-1; i>=0; i--){
-            if(nodes[i].name == input){
+        for (int i = nodes.size() - 1; i >= 0; i--)
+        {
+            if (nodes[i].name == input)
+            {
                 target = nodes[i];
                 macros.push_back(target);
                 break;
@@ -431,6 +434,14 @@ void parse_cascade_inst()
     int column, row;
     while (in_file >> type) // TYPE
     {
+        if (type[0] == '#')
+        {
+            while (type != "###############################################################k##############################")
+            {
+                in_file >> type;
+            }
+            in_file >> type;
+        }
         bool flag;
         flag = false;
         in_file >> row >> column >> name;
@@ -483,6 +494,21 @@ void parse_design()
     parse_scl();
     parse_region();
 }
+
+void showSiteMap(vector<vector<string>> &site_map, int startx, int starty, int cascadeX, int cascadeY)
+{
+    cout << "site map after placed. Cascade x,y = " << cascadeX << ", " << cascadeY << "\n";
+    for (int i = 0; i < site_map.size(); i++)
+    {
+        for (int j = 0; j < site_map[0].size(); j++)
+        {
+            cout << site_map[i][j];
+        }
+        cout << endl;
+    }
+    cout << endl;
+}
+
 pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, int cascadeX, int cascadeY)
 {
     for (int x = 0; x < site_map.size(); x++)
@@ -508,11 +534,12 @@ pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int start
                         site_map[x + i][y + j] = "1";
                     }
                 }
+                // showSiteMap(site_map, x, y, cascadeX, cascadeY);
                 return {x, y};
             }
         }
     }
-    return {0, 0};
+    return {-1, -1};
 }
 pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY)
 {
@@ -942,7 +969,7 @@ void logInput()
     //     cout << "Cascade lib: " << c_lib[i].lib[0] << endl;
     // }
 }
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
     designId = atoi(argv[1]);
     cout << "Current design Id: " << designId << endl;
