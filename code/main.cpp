@@ -9,6 +9,7 @@
 #include <vector>
 #include <chrono>
 #include <cstdlib>
+#include <time.h>
 
 using namespace std;
 
@@ -29,6 +30,7 @@ site_SLICE SLICE_map;
 site_DSP DSP_map;
 site_BRAM BRAM_map;
 site_URAM URAM_map;
+vector<pair<int,int>> design_pl;
 site_IO IO_map;
 enum siteMap
 {
@@ -206,6 +208,7 @@ void parse_pl()
                 nodes[i].bel_idx = bel;
                 if (fixedornot == "FIXED")
                     nodes[i].fixed = true;
+                design_pl.push_back({column,site});
                 break;
             }
         }
@@ -490,8 +493,8 @@ void parse_design()
     parse_nodes();
     parse_region();
     parse_macros();
-    logCascade();
     parse_pl();
+    logCascade();
     parse_nets();
     parse_lib();
     parse_scl();
@@ -513,15 +516,25 @@ void showSiteMap(vector<vector<string>> &site_map, int startx, int starty, int c
 
 pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, int cascadeX, int cascadeY)
 {
-    for (int x = startX; x < endX; x++)
+    for(int k = 0; k<90000; k++)
     {
-        for (int y = startY; y < endY; y++)
-        {
-            bool available = true;
+        // get random position
+        
+        int x = rand() % (endX - startX + 1) + startX;
+        int y = rand() % (endY - startY + 1) + startY;
+        int flag = 0;
+        for(int i = 0; i<design_pl.size(); i++){
+            if(x == design_pl[i].first && y == design_pl[i].second){flag = 1;break;}
+        }
+        if(flag)continue;
+        bool available = true;
             for (int i = 0; i < cascadeX; i++)
             {
+                // check boundary to prevent segmentation fault
+                if(x+i>=site_map.size())break;
                 for (int j = 0; j < cascadeY; j++)
                 {
+                    if(y+j>=site_map[0].size())break;
                     if (site_map[x + i][y + j] != "0")
                         available = false;
                     break;
@@ -537,10 +550,11 @@ pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int start
                     }
                 }
                 // showSiteMap(site_map, x, y, cascadeX, cascadeY);
+                
                 return {x, y};
             }
-        }
     }
+    
     return {-1, -1};
 }
 pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY)
@@ -1046,6 +1060,7 @@ void logInput()
 }
 int main(int argc, char *argv[])
 {
+    srand( time(NULL) );
     designId = atoi(argv[1]);
     cout << "Current design Id: " << designId << endl;
     chrono::steady_clock::time_point begin = chrono::steady_clock::now();
