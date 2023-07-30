@@ -499,7 +499,17 @@ void parse_design()
     parse_lib();
     parse_scl();
 }
-
+int randint(int n) {
+  if ((n - 1) == RAND_MAX) {
+    return rand();
+  } else {
+    long end = RAND_MAX / n;
+    end *= n;
+    int r;
+    while ((r = rand()) >= end);
+    return r % n;
+  }
+}
 void showSiteMap(vector<vector<string>> &site_map, int startx, int starty, int cascadeX, int cascadeY)
 {
     cout << "site map after placed. Cascade x,y = " << cascadeX << ", " << cascadeY << "\n";
@@ -520,8 +530,8 @@ pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int start
     {
         // get random position
         
-        int x = rand() % (endX - startX + 1) + startX;
-        int y = rand() % (endY - startY + 1) + startY;
+        int x = randint(endX - startX) + startX;
+        int y = randint(endY - startY) + startY;
         int flag = 0;
         for(int i = 0; i<design_pl.size(); i++){
             if(x == design_pl[i].first && y == design_pl[i].second){flag = 1;break;}
