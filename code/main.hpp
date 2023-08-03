@@ -11,6 +11,7 @@ class node
 public:
     string name;
     string type;
+    vector<vector<int>> net;
     int column_idx;
     int site_idx;
     int bel_idx;
