@@ -2,6 +2,7 @@
 #include <algorithm>
 #include <fstream>
 #include <iostream>
+#include <iomanip>
 #include <math.h>
 #include <set>
 #include <sstream>
@@ -1163,24 +1164,22 @@ bool accept(double T, double cost)
     return exp(power) > r;
 }
 
-int ThermalEquilibrium(double T)
-{
-    cout << "In ThermalEquilibrium: " << (T + 200) / 220 << endl;
-    return (T + 200) / 220;
-}
 
 vector<node> Perturb(vector<node> sNow)
 {
-    int rrr1 = 0;
-    int rrr2 = 0;
+    // int rrr1 = 0;
+    // int rrr2 = 0;
+    int skip = 0;
+    int times = 0;
     while (1)
     {
-        bool flag1 = false;
-        bool flag2 = false;
+        times++;
+        bool flag1 = true;
+        bool flag2 = true;
         int r1 = rand() % (sNow.size());
         int r2 = rand() % (sNow.size());
-        rrr1 = r1;
-        rrr2 = r2;
+        // rrr1 = r1;
+        // rrr2 = r2;
         auto &n1 = sNow[r1];
         auto &n2 = sNow[r2];
         auto n1rgc = n1.rg_constraint;
@@ -1189,11 +1188,13 @@ vector<node> Perturb(vector<node> sNow)
             n1.cascadeSize.first != n2.cascadeSize.first ||
             n1.cascadeSize.second != n2.cascadeSize.second)
         {
+            skip++;
             continue;
         }
         // n1rgc 的其中一組要可以放 n2coord
         if (n1rgc != -1)
         {
+            flag1 = false;
             for (int i = 0; i < r_constraint[n1rgc].num_boxes; ++i)
             {
                 auto rgc = r_constraint[n1rgc].rect[i];
@@ -1214,6 +1215,7 @@ vector<node> Perturb(vector<node> sNow)
         // n2rgc 的其中一組要可以放 n1coord
         if (n2rgc != -1)
         {
+            flag2 = false;
             for (int i = 0; i < r_constraint[n2rgc].num_boxes; ++i)
             {
                 auto rgc = r_constraint[n2rgc].rect[i];
@@ -1230,6 +1232,7 @@ vector<node> Perturb(vector<node> sNow)
                 };
             }
         }
+
         if (flag1 && flag2)
         {
             auto tmp_column_idx = n1.column_idx;
@@ -1241,6 +1244,7 @@ vector<node> Perturb(vector<node> sNow)
             break;
         }
     }
+    // cout << "during perturb: " << times << " try and " << skip << "skip"<<endl;
     return sNow;
 }
 
@@ -1256,14 +1260,28 @@ int cost(vector<node> &tmp_ans)
     return total;
 }
 
+int INIT_T = 100000;
+int END_T = 20;
+int printCount = 0;
+int ThermalEquilibrium(double T)
+{
+    int a = INIT_T / 10;
+    int b = a/2 + END_T;
+    if (printCount++ == 10){
+        cout << "In ThermalEquilibrium: " << (T + a) / b << endl;
+        printCount = 0;
+    }
+    return (T + a) / b;
+}
+
 void SA()
 {
     vector<node> sNow, sNext, sBest;
     double T, endT;
     sNow = macros;
     sBest = macros;
-    T = 2000;
-    endT = 20;
+    T = INIT_T;
+    endT = END_T;
     while (T > endT)
     {
         // cout << "T: " << T << endl;
@@ -1282,22 +1300,21 @@ void SA()
             else if (accept(T, cost(sNext) - cost(sNow)))
                 sNow = sNext;
         }
-        T -= 20;
+        // T -= 20;
+        T *= 0.999;
     }
-    cout << "HPWL before SA: " << cost(macros) << endl;
-    cout << "HPWL after SA: " << cost(sBest) << endl;
-    cout << "Difference: " << cost(macros) - cost(sBest) << endl;
+    cout << "HPWL before SA " << setw(8) << cost(macros) << endl;
+    cout << "HPWL after  SA " << setw(8) << cost(sBest)  << endl;
+    cout << "Difference     " << setw(8) << cost(macros) - cost(sBest) << endl;
     macros = sBest;
 }
 
 /*
-
 1. T = 2000
 2. endT = 20
 3. Perturb
 4. ThermalEquilibrium = [1, 10]
 5. Decrease = -20
-
 */
 
 int main(int argc, char *argv[])
