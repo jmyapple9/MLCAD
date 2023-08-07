@@ -653,6 +653,13 @@ pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX,
     }
     return {0, 0};
 }
+/* 
+rgstartX: region constrain of x's start coordinate
+rgstartY: region constrain of y's start coordinate
+rgendX: region constrain of x's end coordinate
+rgendY: region constrain of y's end coordinate
+erase: true if we want to erase the origional macro on that, used in Perturb()
+ */
 pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY)
 {
     pair<int, int> validXY(-1, -1);
@@ -1004,6 +1011,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
 }
 void output()
 {
+    cout << "Output...." << endl;
     out_file.open(filePath + to_string(designId) + "/macroplacement.pl");
 
     for (auto n = macros.rbegin(); n != macros.rend(); ++n)
@@ -1138,20 +1146,21 @@ bool if_macro_legal()
                 if (low_x < startX || high_x >= endX)
                 {
                     cout << "macros number " << cnt << " is not legal." << endl;
-                    cout << "x: " << low_x << " " << high_x << " , " << startX << endX;
-                    cout << "y: " << low_y << " " << high_y << " , " << startY << endY << endl;
+                    cout << "x: " << low_x << " " << high_x << " , " << startX << " " <<  endX;
+                    cout << "y: " << low_y << " " << high_y << " , " << startY << " " <<  endY << endl;
                     return false;
                 }
                 if (low_y < startY || high_y >= endY)
                 {
                     cout << "macros number " << cnt << " is not legal." << endl;
-                    cout << "x: " << low_x << " " << high_x << " , " << startX << endX;
-                    cout << "y: " << low_y << " " << high_y << " , " << startY << endY << endl;
+                    cout << "x: " << low_x << " " << high_x << " , " << startX << " " << endX;
+                    cout << "y: " << low_y << " " << high_y << " , " << startY << " " << endY << endl;
                     return false;
                 }
             }
         }
     }
+    cout << "Legal!" << endl;
     return true;
 }
 bool accept(double T, double cost)
@@ -1165,21 +1174,34 @@ bool accept(double T, double cost)
 }
 
 
+// Improvement option:
+// 1. add Perturb movement: Move random macro up, down, left, or right with random distance
+// 2. add Perturb movement: Randomly put a macro to another position
+// 3. initialization without macro next to each other
+
 vector<node> Perturb(vector<node> sNow)
 {
-    // int rrr1 = 0;
-    // int rrr2 = 0;
+    /* int perturbMode = rand() % 2; // 0 or 1
+    switch (perturbMode)
+    {
+    case 0:
+
+        break;
+    case 1:
+
+        break;
+    default:
+        cout << "Error! perturb mode " << perturbMode << " not exist." << endl;
+        break;
+    } */
     int skip = 0;
     int times = 0;
     while (1)
     {
         times++;
-        bool flag1 = true;
-        bool flag2 = true;
+        bool flag1 = true, flag2 = true;
         int r1 = rand() % (sNow.size());
         int r2 = rand() % (sNow.size());
-        // rrr1 = r1;
-        // rrr2 = r2;
         auto &n1 = sNow[r1];
         auto &n2 = sNow[r2];
         auto n1rgc = n1.rg_constraint;
@@ -1235,12 +1257,8 @@ vector<node> Perturb(vector<node> sNow)
 
         if (flag1 && flag2)
         {
-            auto tmp_column_idx = n1.column_idx;
-            auto tmp_site_idx = n1.site_idx;
-            n1.column_idx = n2.column_idx;
-            n1.site_idx = n2.site_idx;
-            n2.column_idx = tmp_column_idx;
-            n2.site_idx = tmp_site_idx;
+            swap(n1.column_idx, n2.column_idx);
+            swap(n1.site_idx, n2.site_idx);
             break;
         }
     }
@@ -1260,14 +1278,19 @@ int cost(vector<node> &tmp_ans)
     return total;
 }
 
-int INIT_T = 100000;
+int INIT_T = 2000;
 int END_T = 20;
 int printCount = 0;
+void decrease(double &T){
+    // T *= 0.999;
+    T -= 20;
+}
+
 int ThermalEquilibrium(double T)
 {
     int a = INIT_T / 10;
     int b = a/2 + END_T;
-    if (printCount++ == 10){
+    if (printCount++ == 0){
         cout << "In ThermalEquilibrium: " << (T + a) / b << endl;
         printCount = 0;
     }
@@ -1276,6 +1299,7 @@ int ThermalEquilibrium(double T)
 
 void SA()
 {
+    cout << "SA...." << endl;
     vector<node> sNow, sNext, sBest;
     double T, endT;
     sNow = macros;
@@ -1300,8 +1324,7 @@ void SA()
             else if (accept(T, cost(sNext) - cost(sNow)))
                 sNow = sNext;
         }
-        // T -= 20;
-        T *= 0.999;
+        decrease(T);
     }
     cout << "HPWL before SA " << setw(8) << cost(macros) << endl;
     cout << "HPWL after  SA " << setw(8) << cost(sBest)  << endl;
@@ -1335,16 +1358,16 @@ int main(int argc, char *argv[])
     chrono::steady_clock::time_point end = chrono::steady_clock::now();
     cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
     begin = chrono::steady_clock::now();
-    placement();
-    cout << "SA...." << endl;
+    
+    do{
+        placement();
+    }while(!if_macro_legal());
+    
     SA();
-    cout << "Output...." << endl;
     output();
     cout << "Check if placement violate the constraint..." << endl;
-    if (if_macro_legal())
-    {
-        cout << "Legal!" << endl;
-    }
+    if_macro_legal();
+        
     end = chrono::steady_clock::now();
     cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
     return 0;
