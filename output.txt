@@ -4,765 +4,517 @@ Current design Id: 2
 Parse_cascade_inst ...
 Parse_cascade_shape ...
 Parse node ...
-Parse_region ...
 Parse macros ...
+Parse_region ...
 Parse Design.pl ...
 Parse_nets ...
 Parse_lib ...
 Parse_scl ...
-Time difference (sec) = 67.5143
+Time difference (sec) = 8.38013
 Placement...
-0 0 211 180
+Legal!
+SA....
+In ThermalEquilibrium: 18.3333
+In ThermalEquilibrium: 18.1667
+In ThermalEquilibrium: 18
+In ThermalEquilibrium: 17.8333
+In ThermalEquilibrium: 17.6667
+In ThermalEquilibrium: 17.5
+In ThermalEquilibrium: 17.3333
+In ThermalEquilibrium: 17.1667
+In ThermalEquilibrium: 17
+In ThermalEquilibrium: 16.8333
+In ThermalEquilibrium: 16.6667
+In ThermalEquilibrium: 16.5
+In ThermalEquilibrium: 16.3333
+In ThermalEquilibrium: 16.1667
+In ThermalEquilibrium: 16
+In ThermalEquilibrium: 15.8333
+In ThermalEquilibrium: 15.6667
+In ThermalEquilibrium: 15.5
+In ThermalEquilibrium: 15.3333
+In ThermalEquilibrium: 15.1667
+In ThermalEquilibrium: 15
+In ThermalEquilibrium: 14.8333
+In ThermalEquilibrium: 14.6667
+In ThermalEquilibrium: 14.5
+In ThermalEquilibrium: 14.3333
+In ThermalEquilibrium: 14.1667
+In ThermalEquilibrium: 14
+In ThermalEquilibrium: 13.8333
+In ThermalEquilibrium: 13.6667
+In ThermalEquilibrium: 13.5
+In ThermalEquilibrium: 13.3333
+In ThermalEquilibrium: 13.1667
+In ThermalEquilibrium: 13
+In ThermalEquilibrium: 12.8333
+In ThermalEquilibrium: 12.6667
+In ThermalEquilibrium: 12.5
+In ThermalEquilibrium: 12.3333
+In ThermalEquilibrium: 12.1667
+In ThermalEquilibrium: 12
+In ThermalEquilibrium: 11.8333
+In ThermalEquilibrium: 11.6667
+In ThermalEquilibrium: 11.5
+In ThermalEquilibrium: 11.3333
+In ThermalEquilibrium: 11.1667
+In ThermalEquilibrium: 11
+In ThermalEquilibrium: 10.8333
+In ThermalEquilibrium: 10.6667
+In ThermalEquilibrium: 10.5
+In ThermalEquilibrium: 10.3333
+In ThermalEquilibrium: 10.1667
+In ThermalEquilibrium: 10
+In ThermalEquilibrium: 9.83333
+In ThermalEquilibrium: 9.66667
+In ThermalEquilibrium: 9.5
+In ThermalEquilibrium: 9.33333
+In ThermalEquilibrium: 9.16667
+In ThermalEquilibrium: 9
+In ThermalEquilibrium: 8.83333
+In ThermalEquilibrium: 8.66667
+In ThermalEquilibrium: 8.5
+In ThermalEquilibrium: 8.33333
+In ThermalEquilibrium: 8.16667
+In ThermalEquilibrium: 8
+In ThermalEquilibrium: 7.83333
+In ThermalEquilibrium: 7.66667
+In ThermalEquilibrium: 7.5
+In ThermalEquilibrium: 7.33333
+In ThermalEquilibrium: 7.16667
+In ThermalEquilibrium: 7
+In ThermalEquilibrium: 6.83333
+In ThermalEquilibrium: 6.66667
+In ThermalEquilibrium: 6.5
+In ThermalEquilibrium: 6.33333
+In ThermalEquilibrium: 6.16667
+In ThermalEquilibrium: 6
+In ThermalEquilibrium: 5.83333
+In ThermalEquilibrium: 5.66667
+In ThermalEquilibrium: 5.5
+In ThermalEquilibrium: 5.33333
+In ThermalEquilibrium: 5.16667
+In ThermalEquilibrium: 5
+In ThermalEquilibrium: 4.83333
+In ThermalEquilibrium: 4.66667
+In ThermalEquilibrium: 4.5
+In ThermalEquilibrium: 4.33333
+In ThermalEquilibrium: 4.16667
+In ThermalEquilibrium: 4
+In ThermalEquilibrium: 3.83333
+In ThermalEquilibrium: 3.66667
+In ThermalEquilibrium: 3.5
+In ThermalEquilibrium: 3.33333
+In ThermalEquilibrium: 3.16667
+In ThermalEquilibrium: 3
+In ThermalEquilibrium: 2.83333
+In ThermalEquilibrium: 2.66667
+In ThermalEquilibrium: 2.5
+In ThermalEquilibrium: 2.33333
+In ThermalEquilibrium: 2.16667
+In ThermalEquilibrium: 2
+HPWL before SA 19525668
+HPWL after  SA 18015812
+Difference      1509856
+Output....
+Check if placement violate the constraint...
+Legal!
+Time difference (sec) = 75.8686
+
+****** Vivado v2021.1 (64-bit)
+  **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
+  **** IP Build 3246043 on Fri Jun 11 00:30:35 MDT 2021
+    ** Copyright 1986-2023 Xilinx, Inc. All Rights Reserved.
+
+source place_route.tcl
+# open_checkpoint ./design.dcp
+Command: open_checkpoint ./design.dcp
 
-0 0 211 180
+Starting open_checkpoint Task
 
-0 0 211 180
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2524.590 ; gain = 0.000 ; free physical = 26002 ; free virtual = 47753
+INFO: [Device 21-403] Loading part xcvu3p-ffvc1517-1-i
+Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3248.863 ; gain = 0.000 ; free physical = 24530 ; free virtual = 46271
+INFO: [Netlist 29-17] Analyzing 2100 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 8 CPU seconds
+WARNING: [Netlist 29-43] Netlist 'Design_1_65_STDB' is not ideal for floorplanning, since the cellview 'Design_1_65_STDB' defined in file 'Design_1_65_STDB.v' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
+INFO: [Project 1-479] Netlist was created with Vivado 2021.1
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Timing 38-478] Restoring timing data from binary archive.
+INFO: [Timing 38-479] Binary timing data restore complete.
+INFO: [Project 1-856] Restoring constraints from binary archive.
+INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
+  general.maxThreads
+INFO: [Project 1-853] Binary constraint restore complete.
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 4335.355 ; gain = 0.000 ; free physical = 23779 ; free virtual = 45522
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 2100 instances were transformed.
+  DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 1824 instances
+  IBUF => IBUF (IBUFCTRL, INBUF): 276 instances
 
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 0 211 180
-
-0 180 211 300
-
-0 180 211 300
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 0 211 120
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 180 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-0 120 211 300
-
-Time difference (sec) = 0.020057
-Finish parsing benchmark!
+INFO: [Project 1-604] Checkpoint was created with Vivado v2021.1 (64-bit) build 3247384
+open_checkpoint: Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 4335.355 ; gain = 1810.766 ; free physical = 23774 ; free virtual = 45518
+# set_param place.timingDriven false
+# place_design  -macro_placement macroplacement.pl -verbose
+Command: place_design -macro_placement macroplacement.pl -verbose
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu3p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu3p'
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+Running DRC as a precondition to command place_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+Starting Placer Task
+INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 8 CPUs
+
+Phase 1 Placer Initialization
+
+Phase 1.1 Placer Initialization Netlist Sorting
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 6674.473 ; gain = 0.000 ; free physical = 21400 ; free virtual = 43154
+Phase 1.1 Placer Initialization Netlist Sorting | Checksum: d7341d87
+
+Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.14 . Memory (MB): peak = 6674.473 ; gain = 0.000 ; free physical = 21400 ; free virtual = 43154
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 6674.473 ; gain = 0.000 ; free physical = 21400 ; free virtual = 43155
+
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
+Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 15e3d78a8
+
+Time (s): cpu = 00:01:09 ; elapsed = 00:00:59 . Memory (MB): peak = 6763.312 ; gain = 88.840 ; free physical = 21337 ; free virtual = 43091
+
+Phase 1.3 Build Placer Netlist Model
+Phase 1.3 Build Placer Netlist Model | Checksum: 23da6ff4c
+
+Time (s): cpu = 00:01:23 ; elapsed = 00:01:13 . Memory (MB): peak = 7240.500 ; gain = 566.027 ; free physical = 20902 ; free virtual = 42658
+
+Phase 1.4 Constrain Clocks/Macros
+Phase 1.4 Constrain Clocks/Macros | Checksum: 23da6ff4c
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:14 . Memory (MB): peak = 7240.500 ; gain = 566.027 ; free physical = 20897 ; free virtual = 42653
+Phase 1 Placer Initialization | Checksum: 23da6ff4c
+
+Time (s): cpu = 00:01:24 ; elapsed = 00:01:14 . Memory (MB): peak = 7240.500 ; gain = 566.027 ; free physical = 20861 ; free virtual = 42617
+
+Phase 2 Global Placement
+
+Phase 2.1 Floorplanning
+
+Phase 2.1.1 Partition Driven Placement
+
+Phase 2.1.1.1 PBP: Partition Driven Placement
+Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 24a687a7e
+
+Time (s): cpu = 00:07:50 ; elapsed = 00:03:45 . Memory (MB): peak = 8095.070 ; gain = 1420.598 ; free physical = 20292 ; free virtual = 42056
+
+Phase 2.1.1.2 PBP: Clock Region Placement
+Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 149b03f23
+
+Time (s): cpu = 00:08:08 ; elapsed = 00:04:04 . Memory (MB): peak = 8095.070 ; gain = 1420.598 ; free physical = 20202 ; free virtual = 41969
+
+Phase 2.1.1.3 PBP: Discrete Incremental
+Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 15158c720
+
+Time (s): cpu = 00:08:13 ; elapsed = 00:04:09 . Memory (MB): peak = 8095.070 ; gain = 1420.598 ; free physical = 20191 ; free virtual = 41958
+
+Phase 2.1.1.4 PBP: Compute Congestion
+Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 15158c720
+
+Time (s): cpu = 00:08:20 ; elapsed = 00:04:12 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20159 ; free virtual = 41925
+
+Phase 2.1.1.5 PBP: Macro Placement
+Phase 2.1.1.5 PBP: Macro Placement | Checksum: 11fa9d3f6
+
+Time (s): cpu = 00:08:37 ; elapsed = 00:04:28 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 19983 ; free virtual = 41750
+
+Phase 2.1.1.6 PBP: Add part constraints
+Phase 2.1.1.6 PBP: Add part constraints | Checksum: 11fa9d3f6
+
+Time (s): cpu = 00:08:40 ; elapsed = 00:04:31 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 19890 ; free virtual = 41657
+Phase 2.1.1 Partition Driven Placement | Checksum: 11fa9d3f6
+
+Time (s): cpu = 00:08:41 ; elapsed = 00:04:32 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20225 ; free virtual = 41991
+Phase 2.1 Floorplanning | Checksum: 11fa9d3f6
+
+Time (s): cpu = 00:08:42 ; elapsed = 00:04:34 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20225 ; free virtual = 41991
+
+Phase 2.2 Update Timing before SLR Path Opt
+Phase 2.2 Update Timing before SLR Path Opt | Checksum: 11fa9d3f6
+
+Time (s): cpu = 00:08:43 ; elapsed = 00:04:35 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20225 ; free virtual = 41992
+
+Phase 2.3 Post-Processing in Floorplanning
+Phase 2.3 Post-Processing in Floorplanning | Checksum: 11fa9d3f6
+
+Time (s): cpu = 00:08:45 ; elapsed = 00:04:36 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20223 ; free virtual = 41990
+INFO: [Place 30-2096]  
+INFO: [Place 30-950] Reading placement information from file: macroplacement.pl.
+Reading macro placement from macroplacement.pl
+INFO: [Place 30-949] Number of instances to place 2320.
+Placed 2320 macros
+Failed to place 0 macros
+number of non-macro blocks 0
+INFO: [#UNDEF] Number of sites successfully placed '2320'.
+INFO: [Place 30-948] Number of instances successfully placed 2320.
+
+Phase 2.4 Global Placement Core
+runGP 0
+runGP 1
+runGP 2
+runGP 3
+runGP 4
+runGP 5
+runGP 6
+doQPIterations 0
+doQPIterations 1
+doQPIterations 3
+doQPIterations 4
+doQPIterations 5
+doQPIterations 7
+runSimPLFlow 0
+runSimPLFlow 1
+runSimPLFlow 2
+runSimPLFlow 3
+runSimPLFlow 4
+runSimPLFlow 7
+runSimPLFlow 8
+runSimPLFlow 9
+runSimPLFlow 10
+runSimPLFlow 11
+runSimPLFlow 12
+runSimPLFlow 13
+runSimPLFlow 15
+runSimPLFlow 16
+runSimPLFlow 16a.1
+runSimPLFlow 16a.4
+runSimPLFlow 16a.5
+runSimPLFlow 16a.7
+runSimPLFlow 16a.9
+runSimPLFlow 16a.12
+runSimPLFlow 16a.13
+runSimPLFlow 16a.14
+runSimPLFlow 16a.17
+run 0
+doPreIteration 0
+doPreIteration 1
+doPreIteration 2
+doPreIteration 3
+doPreIteration 4
+doPreIteration 5
+doPreIteration 6
+doPreIteration r
+doPreIteration 0
+doPreIteration 0
+doPreIteration 0
+doPreIteration 0
+doPreIteration 0
+doPreIteration 8
+doPreIteration 9
+run 1
+run 2
+doIteration 0
+doIteration 1
+doIteration 2
+run 3
+doPostteration 0
+doPostteration 1
+doPostteration 2
+doPostteration 3
+doPostteration 4
+doPostteration 5
+doPostteration 6
+doPostteration 7
+doPostteration 8
+doPostteration 9
+run 4
+runSimPLFlow 16a.18
+runSimPLFlow 16a.19
+runSimPLFlow 16a.20
+runSimPLFlow 16a.22
+runSimPLFlow 17
+runSimPLFlow 19
+runSimPLFlow 20
+runSimPLFlow 21
+runSimPLFlow 22
+runSimPLFlow 23
+runSimPLFlow 24
+doQPIterations 9
+doQPIterations 10
+doQPIterations 11
+doQPIterations 13
+doQPIterations 14
+doQPIterations 16
+doQPIterations 17
+doQPIterations 18
+runGP 7
+runGP 8
+runGP 9
+runGP 10
+runGP 11
+runGP 12
+WARNING: [Place 46-29] place_design is not in timing mode. Skip physical synthesis in placer
+runGP 13
+runGP 14
+runGP 15
+runGP 16
+runGP 17
+runGP 18
+Phase 2.4 Global Placement Core | Checksum: 17b340df1
+
+Time (s): cpu = 00:23:27 ; elapsed = 00:10:01 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19908 ; free virtual = 41694
+Phase 2 Global Placement | Checksum: 17b340df1
+
+Time (s): cpu = 00:23:28 ; elapsed = 00:10:02 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 20086 ; free virtual = 41872
+
+Phase 3 Detail Placement
+
+Phase 3.1 Commit Multi Column Macros
+Phase 3.1 Commit Multi Column Macros | Checksum: 17b340df1
+
+Time (s): cpu = 00:24:06 ; elapsed = 00:10:11 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 20080 ; free virtual = 41865
+
+Phase 3.2 Commit Most Macros & LUTRAMs
+Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 17b340df1
+
+Time (s): cpu = 00:24:07 ; elapsed = 00:10:13 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 20080 ; free virtual = 41865
+
+Phase 3.3 Small Shape DP
+
+Phase 3.3.1 Small Shape Clustering
+Phase 3.3.1 Small Shape Clustering | Checksum: 21eb0b410
+
+Time (s): cpu = 00:25:42 ; elapsed = 00:10:47 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19567 ; free virtual = 41357
+
+Phase 3.3.2 Flow Legalize Slice Clusters
+Phase 3.3.2 Flow Legalize Slice Clusters | Checksum: 239273075
+
+Time (s): cpu = 00:26:19 ; elapsed = 00:10:57 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19560 ; free virtual = 41351
+
+Phase 3.3.3 Slice Area Swap
+Phase 3.3.3 Slice Area Swap | Checksum: 2006221a1
+
+Time (s): cpu = 00:26:37 ; elapsed = 00:11:12 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 18131 ; free virtual = 39922
+Phase 3.3 Small Shape DP | Checksum: 11bddbd35
+
+Time (s): cpu = 00:29:45 ; elapsed = 00:12:01 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19453 ; free virtual = 41251
+
+Phase 3.4 Place Remaining
+Phase 3.4 Place Remaining | Checksum: 14687620b
+
+Time (s): cpu = 00:29:57 ; elapsed = 00:12:13 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19397 ; free virtual = 41198
+
+Phase 3.5 Re-assign LUT pins
+Phase 3.5 Re-assign LUT pins | Checksum: 14687620b
+
+Time (s): cpu = 00:30:46 ; elapsed = 00:12:35 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19416 ; free virtual = 41217
+
+Phase 3.6 Pipeline Register Optimization
+Phase 3.6 Pipeline Register Optimization | Checksum: 178f4c3f3
+
+Time (s): cpu = 00:30:49 ; elapsed = 00:12:39 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19408 ; free virtual = 41209
+Phase 3 Detail Placement | Checksum: 178f4c3f3
+
+Time (s): cpu = 00:30:51 ; elapsed = 00:12:41 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19412 ; free virtual = 41213
+
+Phase 4 Post Placement Optimization and Clean-Up
+
+Phase 4.1 Post Commit Optimization
+Phase 4.1 Post Commit Optimization | Checksum: 178f4c3f3
+
+Time (s): cpu = 00:31:30 ; elapsed = 00:12:52 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19402 ; free virtual = 41203
+WARNING: [Place 46-14] The placer has determined that this design is highly congested and may have difficulty routing. Run report_design_analysis -congestion for a detailed report.
+
+Phase 4.2 Post Placement Cleanup
+Phase 4.2 Post Placement Cleanup | Checksum: 1246ba00f
+
+Time (s): cpu = 00:35:27 ; elapsed = 00:16:24 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19371 ; free virtual = 41180
+
+Phase 4.3 Placer Reporting
+
+Phase 4.3.1 Print Estimated Congestion
+INFO: [Place 30-612] Post-Placement Estimated Congestion 
+ ________________________________________________________________________
+|           | Global Congestion | Long Congestion   | Short Congestion  |
+| Direction | Region Size       | Region Size       | Region Size       |
+|___________|___________________|___________________|___________________|
+|      North|              64x64|              64x64|                4x4|
+|___________|___________________|___________________|___________________|
+|      South|              64x64|              64x64|                4x4|
+|___________|___________________|___________________|___________________|
+|       East|              32x32|              64x64|                8x8|
+|___________|___________________|___________________|___________________|
+|       West|              32x32|              64x64|                8x8|
+|___________|___________________|___________________|___________________|
+
+Phase 4.3.1 Print Estimated Congestion | Checksum: 1246ba00f
+
+Time (s): cpu = 00:35:30 ; elapsed = 00:16:26 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19365 ; free virtual = 41176
+Phase 4.3 Placer Reporting | Checksum: 1246ba00f
+
+Time (s): cpu = 00:35:32 ; elapsed = 00:16:29 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19366 ; free virtual = 41177
+
+Phase 4.4 Final Placement Cleanup
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 9109.523 ; gain = 0.000 ; free physical = 19383 ; free virtual = 41194
+
+Time (s): cpu = 00:35:32 ; elapsed = 00:16:29 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19383 ; free virtual = 41194
+Phase 4 Post Placement Optimization and Clean-Up | Checksum: 199e2475e
+
+Time (s): cpu = 00:35:35 ; elapsed = 00:16:31 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19382 ; free virtual = 41193
+Ending Placer Task | Checksum: 15a64ec8a
+
+Time (s): cpu = 00:35:35 ; elapsed = 00:16:31 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19382 ; free virtual = 41192
+INFO: [Common 17-83] Releasing license: Implementation
+16 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+place_design completed successfully
+place_design: Time (s): cpu = 00:40:26 ; elapsed = 00:17:47 . Memory (MB): peak = 9109.523 ; gain = 4774.168 ; free physical = 20209 ; free virtual = 42020
+# route_design -no_timing_driven
+Command: route_design -no_timing_driven
+Attempting to get a license for feature 'Implementation' and/or device 'xcvu3p'
+INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu3p'
+Running DRC as a precondition to command route_design
+INFO: [DRC 23-27] Running DRC with 8 threads
+INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
+INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
+
+
+Starting Routing Task
+INFO: [Route 35-65] The router was invoked with the '-no_timing_driven' option. The router will operate in resource-optimization mode.
+INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
+Checksum: PlaceDB: 8330cf03 ConstDB: 0 ShapeSum: d7341d87 RouteDB: 0
+
+Phase 1 Build RT Design
+Nodegraph reading from file.  Time (s): cpu = 00:00:00.42 ; elapsed = 00:00:00.50 . Memory (MB): peak = 9109.523 ; gain = 0.000 ; free physical = 19764 ; free virtual = 41588
+Phase 1 Build RT Design | Checksum: fae73ebe
+
+Time (s): cpu = 00:00:55 ; elapsed = 00:00:26 . Memory (MB): peak = 9109.523 ; gain = 0.000 ; free physical = 19437 ; free virtual = 41261
+Post Restoration Checksum: NetGraph: a47732ba NumContArr: 56700c04 Constraints: 0 Timing: 0
+
+Phase 2 Router Initialization
+
+Phase 2.1 Fix Topology Constraints
+Phase 2.1 Fix Topology Constraints | Checksum: fae73ebe
+
+Time (s): cpu = 00:01:28 ; elapsed = 00:00:59 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19273 ; free virtual = 41100
+
+Phase 2.2 Pre Route Cleanup
+Phase 2.2 Pre Route Cleanup | Checksum: fae73ebe
+
+Time (s): cpu = 00:01:29 ; elapsed = 00:01:00 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19273 ; free virtual = 41099
+Phase 2 Router Initialization | Checksum: fae73ebe
+
+Time (s): cpu = 00:01:40 ; elapsed = 00:01:02 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19277 ; free virtual = 41103
+INFO: [Route 35-17] Router encountered errors. Please check the log file for details
+
+Time (s): cpu = 00:01:40 ; elapsed = 00:01:02 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19449 ; free virtual = 41276
+INFO: [Common 17-83] Releasing license: Implementation
+8 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
+route_design failed
+route_design: Time (s): cpu = 00:04:43 ; elapsed = 00:01:53 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19449 ; free virtual = 41276
+ERROR: [Common 17-39] 'route_design' failed due to earlier errors.
+
+    while executing
+"route_design -no_timing_driven"
+    (file "place_route.tcl" line 31)
+Vivado% 
