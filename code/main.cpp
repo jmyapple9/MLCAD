@@ -74,7 +74,7 @@ int idx_of_macro(string name)
     }
     return -1;
 }
-int boundingbox(node macro,vector<node> &macro_arr)
+int boundingbox(node macro, vector<node> &macro_arr)
 {
     int total = 0;
     for (int i = 0; i < macro.net.size(); i++)
@@ -579,8 +579,13 @@ void showSiteMap(vector<vector<string>> &site_map, int startx, int starty, int c
     cout << endl;
 }
 
-pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, int cascadeX, int cascadeY, string name)
+pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int startY, int endX, int endY, node n, bool erase)
 {
+    // if(erase) cout<< "Enter updatePos" << endl;
+
+    int cascadeX = n.cascadeSize.second;
+    int cascadeY = n.cascadeSize.first;
+    string name = n.name;
     // cout << " pos: " << startX << " " << endX << " " << startY << " " << endY << endl;
     for (int k = 0; k < 90000; k++)
     {
@@ -620,23 +625,23 @@ pair<int, int> updatePos(vector<vector<string>> &site_map, int startX, int start
         if (available)
         {
             for (int i = 0; i < cascadeX; i++)
-            {
                 for (int j = 0; j < cascadeY; j++)
-                {
-                    // cout << x + i << " " << y + j << endl;
                     site_map[x + i][y + j] = name;
-                }
-            }
-            // showSiteMap(site_map, x, y, cascadeX, cascadeY);
-
+            
             return {x, y};
         }
     }
 
     return {-1, -1};
 }
-pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY)
+pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX, int startY, int endX, int endY, node n, bool erase)
 {
+    if (erase)
+    {
+        cout << "Enter updatePos3D" << endl;
+        return {n.column_idx, n.site_idx};
+    }
+
     for (int x = startX; x < endX; x++)
     {
         for (int y = startY; y < endY; y++)
@@ -653,15 +658,58 @@ pair<int, int> updatePos3D(vector<vector<vector<string>>> &site_map, int startX,
     }
     return {0, 0};
 }
-/* 
+
+/*
+return old_x_idx, old_y_idx on sitemap
+ */
+pair<int, int> FindXYPosIdx(vector<int> &x_pos, vector<int> &y_pos, node &n)
+{
+    int old_x_idx = -1, old_y_idx = -1;
+    int xSize = x_pos.size();
+    int ySize = y_pos.size();
+    int old_x_val = n.column_idx;
+    int old_y_val = n.site_idx;
+    for (int i = 0; i < xSize; i++)
+    {
+        if (x_pos[i] == old_x_val)
+        {
+            old_x_idx = i;
+            break;
+        }
+    }
+    for (int j = 0; j < ySize; j++)
+    {
+        if (y_pos[j] == old_y_val)
+        {
+            old_y_idx = j;
+            break;
+        }
+    }
+    return {old_x_idx, old_y_idx};
+}
+
+void clearSiteMap(vector<vector<string>> &site_map, int old_x, int old_y, node &n)
+{
+    // cout << "clearing siteMap" <<endl;
+    int cascadeX = n.cascadeSize.second;
+    int cascadeY = n.cascadeSize.first;
+    for (int i = 0; i < cascadeX; i++)
+        for (int j = 0; j < cascadeY; j++)
+            site_map[old_x + i][old_y + j] = "0";
+    
+
+}
+
+/*
 rgstartX: region constrain of x's start coordinate
 rgstartY: region constrain of y's start coordinate
 rgendX: region constrain of x's end coordinate
 rgendY: region constrain of y's end coordinate
 erase: true if we want to erase the origional macro on that, used in Perturb()
  */
-pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY)
+pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int rgendY, bool erase)
 {
+    // if(erase) cout<< "Enter getValidPos" << endl;
     pair<int, int> validXY(-1, -1);
     int startX = -1, startY = -1, endX, endY;
 
@@ -710,7 +758,12 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     break;
                 }
             }
-            validXY = updatePos(SLICE_map.CARRY8, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first, n.name);
+            if (erase)
+            {
+                auto [old_x, old_y] = FindXYPosIdx(SLICE_map.x_pos, SLICE_map.y_pos, n);
+                clearSiteMap(SLICE_map.CARRY8, old_x, old_y, n);
+            }
+            validXY = updatePos(SLICE_map.CARRY8, startX, startY, endX, endY, n, erase);
             validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : SLICE_map.x_pos[validXY.first];
             validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : SLICE_map.y_pos[validXY.second];
         }
@@ -761,7 +814,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     break;
                 }
             }
-            validXY = updatePos3D(SLICE_map.LUT, startX, startY, endX, endY);
+            validXY = updatePos3D(SLICE_map.LUT, startX, startY, endX, endY, n, erase);
             validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : SLICE_map.x_pos[validXY.first];
             validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : SLICE_map.y_pos[validXY.second];
         }
@@ -807,7 +860,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                     break;
                 }
             }
-            validXY = updatePos3D(SLICE_map.FF, startX, startY, endX, endY);
+            validXY = updatePos3D(SLICE_map.FF, startX, startY, endX, endY, n, erase);
             validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : SLICE_map.x_pos[validXY.first];
             validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : SLICE_map.y_pos[validXY.second];
         }
@@ -850,12 +903,15 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                         break;
                     endY = i;
                 }
-                // cout << rgstartY << " " << rgendY << " ";
-                // cout << DSP_map.y_pos[startY] << " " << DSP_map.y_pos[endY] << endl << endl;
                 break;
             }
         }
-        validXY = updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first, n.name);
+        if (erase)
+        {
+            auto [old_x, old_y] = FindXYPosIdx(DSP_map.x_pos, DSP_map.y_pos, n);
+            clearSiteMap(DSP_map.DSP48E2, old_x, old_y, n);
+        }
+        validXY = updatePos(DSP_map.DSP48E2, startX, startY, endX, endY, n, erase);
         validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : DSP_map.x_pos[validXY.first];
         validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : DSP_map.y_pos[validXY.second];
         break;
@@ -900,7 +956,12 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                 break;
             }
         }
-        validXY = updatePos(BRAM_map.RAMB36E2, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first, n.name);
+        if (erase)
+        {
+            auto [old_x, old_y] = FindXYPosIdx(BRAM_map.x_pos, BRAM_map.y_pos, n);
+            clearSiteMap(BRAM_map.RAMB36E2, old_x, old_y, n);
+        }
+        validXY = updatePos(BRAM_map.RAMB36E2, startX, startY, endX, endY, n, erase);
         validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : BRAM_map.x_pos[validXY.first];
         validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : BRAM_map.y_pos[validXY.second];
         break;
@@ -945,7 +1006,12 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                 break;
             }
         }
-        validXY = updatePos(URAM_map.RURAM288, startX, startY, endX, endY, n.cascadeSize.second, n.cascadeSize.first, n.name);
+        if (erase)
+        {
+            auto [old_x, old_y] = FindXYPosIdx(URAM_map.x_pos, URAM_map.y_pos, n);
+            clearSiteMap(URAM_map.RURAM288, old_x, old_y, n);
+        }
+        validXY = updatePos(URAM_map.RURAM288, startX, startY, endX, endY, n, erase);
         validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : URAM_map.x_pos[validXY.first];
         validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : URAM_map.y_pos[validXY.second];
         break;
@@ -990,7 +1056,7 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
                 break;
             }
         }
-        validXY = updatePos3D(IO_map.IO, startX, startY, endX, endY);
+        validXY = updatePos3D(IO_map.IO, startX, startY, endX, endY, n, erase);
         validXY.first = (validXY.first == -1 || validXY.second == -1) ? -1 : IO_map.x_pos[validXY.first];
         validXY.second = (validXY.first == -1 || validXY.second == -1) ? -1 : IO_map.y_pos[validXY.second];
         break;
@@ -1003,9 +1069,6 @@ pair<int, int> getValidPos(node n, int rgstartX, int rgstartY, int rgendX, int r
     if (startY == -1)
         cout << "Error, uninitialize startY\n";
 
-    /* if(validXY.first == -1 && validXY.second == -1){
-        cout << n.name <<endl;
-    } */
 
     return {validXY.first, validXY.second};
 }
@@ -1025,13 +1088,10 @@ void placement()
 {
     cout << "Placement..." << endl;
     out_file.open(filePath + to_string(designId) + "/macroplacement.pl");
-    // for (auto node : nodes)
     int cursor = macros.size();
-    // int macrosize = macros.size();
     for (auto n = macros.rbegin(); n != macros.rend(); ++n)
     {
         cursor--;
-        // cout << "placing macro number " << cursor;
         auto node2place = *n;
         // SLICE
         if (node2place.type == "LUT1" ||
@@ -1080,19 +1140,16 @@ void placement()
         int startX = 0, startY = 0;
         int endX = 206;
         int endY = 300;
-        // int validX, validY;
-        // cout << node2place.rg_constraint << endl;
         if (node2place.rg_constraint != -1)
         {
             auto rgc = r_constraint[node2place.rg_constraint];
             for (int i = 0; i < rgc.num_boxes; ++i)
             {
-                // cout<<" in ";
                 startX = rgc.rect[i][0];
                 startY = rgc.rect[i][1];
                 endX = rgc.rect[i][2];
                 endY = rgc.rect[i][3];
-                auto [validX, validY] = getValidPos(node2place, startX, startY, endX, endY);
+                auto [validX, validY] = getValidPos(node2place, startX, startY, endX, endY, false);
                 // cout<<validX<<" "<<validY<<endl;
                 // cout<<cursor<<" "<<macros[cursor].name<<endl;
                 if (validX == -1 || validY == -1)
@@ -1110,7 +1167,7 @@ void placement()
         }
         else
         {
-            auto [validX, validY] = getValidPos(node2place, startX, startY, endX, endY);
+            auto [validX, validY] = getValidPos(node2place, startX, startY, endX, endY, false);
             // cout<<" in "<<validX<<" "<<validY<<endl;
             // if (validX == -1 || validY == -1) continue;
             auto newnode = node2place;
@@ -1146,8 +1203,8 @@ bool if_macro_legal()
                 if (low_x < startX || high_x >= endX)
                 {
                     cout << "macros number " << cnt << " is not legal." << endl;
-                    cout << "x: " << low_x << " " << high_x << " , " << startX << " " <<  endX;
-                    cout << "y: " << low_y << " " << high_y << " , " << startY << " " <<  endY << endl;
+                    cout << "x: " << low_x << " " << high_x << " , " << startX << " " << endX;
+                    cout << "y: " << low_y << " " << high_y << " , " << startY << " " << endY << endl;
                     return false;
                 }
                 if (low_y < startY || high_y >= endY)
@@ -1165,7 +1222,6 @@ bool if_macro_legal()
 }
 bool accept(double T, double cost)
 {
-    // cout << cost << endl;
     if (T == 0)
         return false;
     double r = ((double)rand() / (INT_MAX));
@@ -1173,97 +1229,130 @@ bool accept(double T, double cost)
     return exp(power) > r;
 }
 
-
 // Improvement option:
 // 1. add Perturb movement: Move random macro up, down, left, or right with random distance
 // 2. add Perturb movement: Randomly put a macro to another position
 // 3. initialization without macro next to each other
 
+double MODE_1_RATIO = 0.1;
 vector<node> Perturb(vector<node> sNow)
 {
-    /* int perturbMode = rand() % 2; // 0 or 1
-    switch (perturbMode)
-    {
-    case 0:
+    double rdm = (rand() % 100) / 100.0; // 0~1
+    if (rdm < MODE_1_RATIO)
+    { // Randomly put a macro to another positions
+        // cout << "perturb mode 1" << endl;
+        int rdmCursor = rand() % (sNow.size());
+        auto &n = sNow[rdmCursor];
 
-        break;
-    case 1:
-
-        break;
-    default:
-        cout << "Error! perturb mode " << perturbMode << " not exist." << endl;
-        break;
-    } */
-    int skip = 0;
-    int times = 0;
-    while (1)
-    {
-        times++;
-        bool flag1 = true, flag2 = true;
-        int r1 = rand() % (sNow.size());
-        int r2 = rand() % (sNow.size());
-        auto &n1 = sNow[r1];
-        auto &n2 = sNow[r2];
-        auto n1rgc = n1.rg_constraint;
-        auto n2rgc = n2.rg_constraint;
-        if (n1.site != n2.site ||
-            n1.cascadeSize.first != n2.cascadeSize.first ||
-            n1.cascadeSize.second != n2.cascadeSize.second)
+        int startX = 0, startY = 0;
+        int endX = 206;
+        int endY = 300;
+        if (n.rg_constraint != -1)
         {
-            skip++;
-            continue;
-        }
-        // n1rgc 的其中一組要可以放 n2coord
-        if (n1rgc != -1)
-        {
-            flag1 = false;
-            for (int i = 0; i < r_constraint[n1rgc].num_boxes; ++i)
+            auto rgc = r_constraint[n.rg_constraint];
+            for (int i = 0; i < rgc.num_boxes; ++i)
             {
-                auto rgc = r_constraint[n1rgc].rect[i];
-                auto startX = rgc[0];
-                auto startY = rgc[1];
-                auto endX = rgc[2];
-                auto endY = rgc[3];
-                auto n2X = n2.column_idx;
-                auto n2Y = n2.site_idx;
-                if (startX <= n2X && endX >= n2X && startY <= n2Y && endY >= n2Y)
+                startX = rgc.rect[i][0];
+                startY = rgc.rect[i][1];
+                endX = rgc.rect[i][2];
+                endY = rgc.rect[i][3];
+                auto [validX, validY] = getValidPos(n, startX, startY, endX, endY, true);
+                if (validX == -1 || validY == -1)
+                    continue;
+                else
                 {
-                    flag1 = true;
+                    auto newnode = n;
+                    newnode.column_idx = (int)validX;
+                    newnode.site_idx = (int)validY;
+                    newnode.bel_idx = 0;
+                    sNow[rdmCursor] = newnode;
                     break;
-                };
+                }
             }
         }
-
-        // n2rgc 的其中一組要可以放 n1coord
-        if (n2rgc != -1)
+        else
         {
-            flag2 = false;
-            for (int i = 0; i < r_constraint[n2rgc].num_boxes; ++i)
-            {
-                auto rgc = r_constraint[n2rgc].rect[i];
-                auto startX = rgc[0];
-                auto startY = rgc[1];
-                auto endX = rgc[2];
-                auto endY = rgc[3];
-                auto n1X = n1.column_idx;
-                auto n1Y = n1.site_idx;
-                if (startX <= n1X && endX >= n1X && startY <= n1Y && endY >= n1Y)
-                {
-                    flag2 = true;
-                    break;
-                };
-            }
-        }
-
-        if (flag1 && flag2)
-        {
-            swap(n1.column_idx, n2.column_idx);
-            swap(n1.site_idx, n2.site_idx);
-            break;
+            auto [validX, validY] = getValidPos(n, startX, startY, endX, endY, true);
+            auto newnode = n;
+            newnode.column_idx = (int)validX;
+            newnode.site_idx = (int)validY;
+            newnode.bel_idx = 0;
+            sNow[rdmCursor] = newnode;
         }
     }
-    // cout << "during perturb: " << times << " try and " << skip << "skip"<<endl;
-    return sNow;
+    else
+    { // swtich 2 similar macros
+        // cout << "perturb mode 2" << endl;
+        int skip = 0;
+        int times = 0;
+        while (1)
+        {
+            times++;
+            bool flag1 = true, flag2 = true;
+            int r1 = rand() % (sNow.size());
+            int r2 = rand() % (sNow.size());
+            auto &n1 = sNow[r1];
+            auto &n2 = sNow[r2];
+            auto n1rgc = n1.rg_constraint;
+            auto n2rgc = n2.rg_constraint;
+            if (n1.site != n2.site ||
+                n1.cascadeSize.first != n2.cascadeSize.first ||
+                n1.cascadeSize.second != n2.cascadeSize.second)
+            {
+                skip++;
+                continue;
+            }
+            // n1rgc 的其中一組要可以放 n2coord
+            if (n1rgc != -1)
+            {
+                flag1 = false;
+                for (int i = 0; i < r_constraint[n1rgc].num_boxes; ++i)
+                {
+                    auto rgc = r_constraint[n1rgc].rect[i];
+                    auto startX = rgc[0];
+                    auto startY = rgc[1];
+                    auto endX = rgc[2];
+                    auto endY = rgc[3];
+                    auto n2X = n2.column_idx;
+                    auto n2Y = n2.site_idx;
+                    if (startX <= n2X && endX >= n2X && startY <= n2Y && endY >= n2Y)
+                    {
+                        flag1 = true;
+                        break;
+                    };
+                }
+            }
+
+            // n2rgc 的其中一組要可以放 n1coord
+            if (n2rgc != -1)
+            {
+                flag2 = false;
+                for (int i = 0; i < r_constraint[n2rgc].num_boxes; ++i)
+                {
+                    auto rgc = r_constraint[n2rgc].rect[i];
+                    auto startX = rgc[0];
+                    auto startY = rgc[1];
+                    auto endX = rgc[2];
+                    auto endY = rgc[3];
+                    auto n1X = n1.column_idx;
+                    auto n1Y = n1.site_idx;
+                    if (startX <= n1X && endX >= n1X && startY <= n1Y && endY >= n1Y)
+                    {
+                        flag2 = true;
+                        break;
+                    };
+                }
+            }
+
+            if (flag1 && flag2)
+            {
+                swap(n1.column_idx, n2.column_idx);
+                swap(n1.site_idx, n2.site_idx);
+                break;
+            }
+        }
+        return sNow;
+    }
 }
 
 int cost(vector<node> &tmp_ans)
@@ -1271,7 +1360,7 @@ int cost(vector<node> &tmp_ans)
     int total = 0;
     for (auto m : tmp_ans)
     {
-        total += boundingbox(m,tmp_ans);
+        total += boundingbox(m, tmp_ans);
     }
     if (total < 0)
         cout << "overflow!!!!!!!" << endl;
@@ -1281,7 +1370,8 @@ int cost(vector<node> &tmp_ans)
 int INIT_T = 2000;
 int END_T = 20;
 int printCount = 0;
-void decrease(double &T){
+void decrease(double &T)
+{
     // T *= 0.999;
     T -= 20;
 }
@@ -1289,8 +1379,9 @@ void decrease(double &T){
 int ThermalEquilibrium(double T)
 {
     int a = INIT_T / 10;
-    int b = a/2 + END_T;
-    if (printCount++ == 0){
+    int b = a / 2 + END_T;
+    if (printCount++ == 0)
+    {
         cout << "In ThermalEquilibrium: " << (T + a) / b << endl;
         printCount = 0;
     }
@@ -1308,13 +1399,10 @@ void SA()
     endT = END_T;
     while (T > endT)
     {
-        // cout << "T: " << T << endl;
         int cnt = ThermalEquilibrium(T);
         while (cnt--)
         {
-            // cout << "sNext: " << cost(sNext) << endl;
             sNext = Perturb(sNow);
-            // cout << "sNow: " << cost(sNow) << endl;
             if (cost(sNext) < cost(sNow))
             {
                 sNow = sNext;
@@ -1359,9 +1447,10 @@ int main(int argc, char *argv[])
     cout << "Time difference (sec) = " << (chrono::duration_cast<chrono::microseconds>(end - begin).count()) / 1000000.0 << endl;
     begin = chrono::steady_clock::now();
     
-    do{
+    do
+    {
         placement();
-    }while(!if_macro_legal());
+    } while (!if_macro_legal());
     
     SA();
     output();
