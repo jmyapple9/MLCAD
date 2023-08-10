@@ -10,116 +10,1017 @@ Parse Design.pl ...
 Parse_nets ...
 Parse_lib ...
 Parse_scl ...
-Time difference (sec) = 8.38013
+Time difference (sec) = 9.63456
 Placement...
 Legal!
 SA....
+In ThermalEquilibrium: 21.5686
+In ThermalEquilibrium: 21.549
+In ThermalEquilibrium: 21.5294
+In ThermalEquilibrium: 21.5098
+In ThermalEquilibrium: 21.4902
+In ThermalEquilibrium: 21.4706
+In ThermalEquilibrium: 21.451
+In ThermalEquilibrium: 21.4314
+In ThermalEquilibrium: 21.4118
+In ThermalEquilibrium: 21.3922
+In ThermalEquilibrium: 21.3725
+In ThermalEquilibrium: 21.3529
+In ThermalEquilibrium: 21.3333
+In ThermalEquilibrium: 21.3137
+In ThermalEquilibrium: 21.2941
+In ThermalEquilibrium: 21.2745
+In ThermalEquilibrium: 21.2549
+In ThermalEquilibrium: 21.2353
+In ThermalEquilibrium: 21.2157
+In ThermalEquilibrium: 21.1961
+In ThermalEquilibrium: 21.1765
+In ThermalEquilibrium: 21.1569
+In ThermalEquilibrium: 21.1373
+In ThermalEquilibrium: 21.1176
+In ThermalEquilibrium: 21.098
+In ThermalEquilibrium: 21.0784
+In ThermalEquilibrium: 21.0588
+In ThermalEquilibrium: 21.0392
+In ThermalEquilibrium: 21.0196
+In ThermalEquilibrium: 21
+In ThermalEquilibrium: 20.9804
+In ThermalEquilibrium: 20.9608
+In ThermalEquilibrium: 20.9412
+In ThermalEquilibrium: 20.9216
+In ThermalEquilibrium: 20.902
+In ThermalEquilibrium: 20.8824
+In ThermalEquilibrium: 20.8627
+In ThermalEquilibrium: 20.8431
+In ThermalEquilibrium: 20.8235
+In ThermalEquilibrium: 20.8039
+In ThermalEquilibrium: 20.7843
+In ThermalEquilibrium: 20.7647
+In ThermalEquilibrium: 20.7451
+In ThermalEquilibrium: 20.7255
+In ThermalEquilibrium: 20.7059
+In ThermalEquilibrium: 20.6863
+In ThermalEquilibrium: 20.6667
+In ThermalEquilibrium: 20.6471
+In ThermalEquilibrium: 20.6275
+In ThermalEquilibrium: 20.6078
+In ThermalEquilibrium: 20.5882
+In ThermalEquilibrium: 20.5686
+In ThermalEquilibrium: 20.549
+In ThermalEquilibrium: 20.5294
+In ThermalEquilibrium: 20.5098
+In ThermalEquilibrium: 20.4902
+In ThermalEquilibrium: 20.4706
+In ThermalEquilibrium: 20.451
+In ThermalEquilibrium: 20.4314
+In ThermalEquilibrium: 20.4118
+In ThermalEquilibrium: 20.3922
+In ThermalEquilibrium: 20.3725
+In ThermalEquilibrium: 20.3529
+In ThermalEquilibrium: 20.3333
+In ThermalEquilibrium: 20.3137
+In ThermalEquilibrium: 20.2941
+In ThermalEquilibrium: 20.2745
+In ThermalEquilibrium: 20.2549
+In ThermalEquilibrium: 20.2353
+In ThermalEquilibrium: 20.2157
+In ThermalEquilibrium: 20.1961
+In ThermalEquilibrium: 20.1765
+In ThermalEquilibrium: 20.1569
+In ThermalEquilibrium: 20.1373
+In ThermalEquilibrium: 20.1176
+In ThermalEquilibrium: 20.098
+In ThermalEquilibrium: 20.0784
+In ThermalEquilibrium: 20.0588
+In ThermalEquilibrium: 20.0392
+In ThermalEquilibrium: 20.0196
+In ThermalEquilibrium: 20
+In ThermalEquilibrium: 19.9804
+In ThermalEquilibrium: 19.9608
+In ThermalEquilibrium: 19.9412
+In ThermalEquilibrium: 19.9216
+In ThermalEquilibrium: 19.902
+In ThermalEquilibrium: 19.8824
+In ThermalEquilibrium: 19.8627
+In ThermalEquilibrium: 19.8431
+In ThermalEquilibrium: 19.8235
+In ThermalEquilibrium: 19.8039
+In ThermalEquilibrium: 19.7843
+In ThermalEquilibrium: 19.7647
+In ThermalEquilibrium: 19.7451
+In ThermalEquilibrium: 19.7255
+In ThermalEquilibrium: 19.7059
+In ThermalEquilibrium: 19.6863
+In ThermalEquilibrium: 19.6667
+In ThermalEquilibrium: 19.6471
+In ThermalEquilibrium: 19.6275
+In ThermalEquilibrium: 19.6078
+In ThermalEquilibrium: 19.5882
+In ThermalEquilibrium: 19.5686
+In ThermalEquilibrium: 19.549
+In ThermalEquilibrium: 19.5294
+In ThermalEquilibrium: 19.5098
+In ThermalEquilibrium: 19.4902
+In ThermalEquilibrium: 19.4706
+In ThermalEquilibrium: 19.451
+In ThermalEquilibrium: 19.4314
+In ThermalEquilibrium: 19.4118
+In ThermalEquilibrium: 19.3922
+In ThermalEquilibrium: 19.3725
+In ThermalEquilibrium: 19.3529
+In ThermalEquilibrium: 19.3333
+In ThermalEquilibrium: 19.3137
+In ThermalEquilibrium: 19.2941
+In ThermalEquilibrium: 19.2745
+In ThermalEquilibrium: 19.2549
+In ThermalEquilibrium: 19.2353
+In ThermalEquilibrium: 19.2157
+In ThermalEquilibrium: 19.1961
+In ThermalEquilibrium: 19.1765
+In ThermalEquilibrium: 19.1569
+In ThermalEquilibrium: 19.1373
+In ThermalEquilibrium: 19.1176
+In ThermalEquilibrium: 19.098
+In ThermalEquilibrium: 19.0784
+In ThermalEquilibrium: 19.0588
+In ThermalEquilibrium: 19.0392
+In ThermalEquilibrium: 19.0196
+In ThermalEquilibrium: 19
+In ThermalEquilibrium: 18.9804
+In ThermalEquilibrium: 18.9608
+In ThermalEquilibrium: 18.9412
+In ThermalEquilibrium: 18.9216
+In ThermalEquilibrium: 18.902
+In ThermalEquilibrium: 18.8824
+In ThermalEquilibrium: 18.8627
+In ThermalEquilibrium: 18.8431
+In ThermalEquilibrium: 18.8235
+In ThermalEquilibrium: 18.8039
+In ThermalEquilibrium: 18.7843
+In ThermalEquilibrium: 18.7647
+In ThermalEquilibrium: 18.7451
+In ThermalEquilibrium: 18.7255
+In ThermalEquilibrium: 18.7059
+In ThermalEquilibrium: 18.6863
+In ThermalEquilibrium: 18.6667
+In ThermalEquilibrium: 18.6471
+In ThermalEquilibrium: 18.6275
+In ThermalEquilibrium: 18.6078
+In ThermalEquilibrium: 18.5882
+In ThermalEquilibrium: 18.5686
+In ThermalEquilibrium: 18.549
+In ThermalEquilibrium: 18.5294
+In ThermalEquilibrium: 18.5098
+In ThermalEquilibrium: 18.4902
+In ThermalEquilibrium: 18.4706
+In ThermalEquilibrium: 18.451
+In ThermalEquilibrium: 18.4314
+In ThermalEquilibrium: 18.4118
+In ThermalEquilibrium: 18.3922
+In ThermalEquilibrium: 18.3725
+In ThermalEquilibrium: 18.3529
 In ThermalEquilibrium: 18.3333
-In ThermalEquilibrium: 18.1667
+In ThermalEquilibrium: 18.3137
+In ThermalEquilibrium: 18.2941
+In ThermalEquilibrium: 18.2745
+In ThermalEquilibrium: 18.2549
+In ThermalEquilibrium: 18.2353
+In ThermalEquilibrium: 18.2157
+In ThermalEquilibrium: 18.1961
+In ThermalEquilibrium: 18.1765
+In ThermalEquilibrium: 18.1569
+In ThermalEquilibrium: 18.1373
+In ThermalEquilibrium: 18.1176
+In ThermalEquilibrium: 18.098
+In ThermalEquilibrium: 18.0784
+In ThermalEquilibrium: 18.0588
+In ThermalEquilibrium: 18.0392
+In ThermalEquilibrium: 18.0196
 In ThermalEquilibrium: 18
-In ThermalEquilibrium: 17.8333
+In ThermalEquilibrium: 17.9804
+In ThermalEquilibrium: 17.9608
+In ThermalEquilibrium: 17.9412
+In ThermalEquilibrium: 17.9216
+In ThermalEquilibrium: 17.902
+In ThermalEquilibrium: 17.8824
+In ThermalEquilibrium: 17.8627
+In ThermalEquilibrium: 17.8431
+In ThermalEquilibrium: 17.8235
+In ThermalEquilibrium: 17.8039
+In ThermalEquilibrium: 17.7843
+In ThermalEquilibrium: 17.7647
+In ThermalEquilibrium: 17.7451
+In ThermalEquilibrium: 17.7255
+In ThermalEquilibrium: 17.7059
+In ThermalEquilibrium: 17.6863
 In ThermalEquilibrium: 17.6667
-In ThermalEquilibrium: 17.5
+In ThermalEquilibrium: 17.6471
+In ThermalEquilibrium: 17.6275
+In ThermalEquilibrium: 17.6078
+In ThermalEquilibrium: 17.5882
+In ThermalEquilibrium: 17.5686
+In ThermalEquilibrium: 17.549
+In ThermalEquilibrium: 17.5294
+In ThermalEquilibrium: 17.5098
+In ThermalEquilibrium: 17.4902
+In ThermalEquilibrium: 17.4706
+In ThermalEquilibrium: 17.451
+In ThermalEquilibrium: 17.4314
+In ThermalEquilibrium: 17.4118
+In ThermalEquilibrium: 17.3922
+In ThermalEquilibrium: 17.3725
+In ThermalEquilibrium: 17.3529
 In ThermalEquilibrium: 17.3333
-In ThermalEquilibrium: 17.1667
+In ThermalEquilibrium: 17.3137
+In ThermalEquilibrium: 17.2941
+In ThermalEquilibrium: 17.2745
+In ThermalEquilibrium: 17.2549
+In ThermalEquilibrium: 17.2353
+In ThermalEquilibrium: 17.2157
+In ThermalEquilibrium: 17.1961
+In ThermalEquilibrium: 17.1765
+In ThermalEquilibrium: 17.1569
+In ThermalEquilibrium: 17.1373
+In ThermalEquilibrium: 17.1176
+In ThermalEquilibrium: 17.098
+In ThermalEquilibrium: 17.0784
+In ThermalEquilibrium: 17.0588
+In ThermalEquilibrium: 17.0392
+In ThermalEquilibrium: 17.0196
 In ThermalEquilibrium: 17
-In ThermalEquilibrium: 16.8333
+In ThermalEquilibrium: 16.9804
+In ThermalEquilibrium: 16.9608
+In ThermalEquilibrium: 16.9412
+In ThermalEquilibrium: 16.9216
+In ThermalEquilibrium: 16.902
+In ThermalEquilibrium: 16.8824
+In ThermalEquilibrium: 16.8627
+In ThermalEquilibrium: 16.8431
+In ThermalEquilibrium: 16.8235
+In ThermalEquilibrium: 16.8039
+In ThermalEquilibrium: 16.7843
+In ThermalEquilibrium: 16.7647
+In ThermalEquilibrium: 16.7451
+In ThermalEquilibrium: 16.7255
+In ThermalEquilibrium: 16.7059
+In ThermalEquilibrium: 16.6863
 In ThermalEquilibrium: 16.6667
-In ThermalEquilibrium: 16.5
+In ThermalEquilibrium: 16.6471
+In ThermalEquilibrium: 16.6275
+In ThermalEquilibrium: 16.6078
+In ThermalEquilibrium: 16.5882
+In ThermalEquilibrium: 16.5686
+In ThermalEquilibrium: 16.549
+In ThermalEquilibrium: 16.5294
+In ThermalEquilibrium: 16.5098
+In ThermalEquilibrium: 16.4902
+In ThermalEquilibrium: 16.4706
+In ThermalEquilibrium: 16.451
+In ThermalEquilibrium: 16.4314
+In ThermalEquilibrium: 16.4118
+In ThermalEquilibrium: 16.3922
+In ThermalEquilibrium: 16.3725
+In ThermalEquilibrium: 16.3529
 In ThermalEquilibrium: 16.3333
-In ThermalEquilibrium: 16.1667
+In ThermalEquilibrium: 16.3137
+In ThermalEquilibrium: 16.2941
+In ThermalEquilibrium: 16.2745
+In ThermalEquilibrium: 16.2549
+In ThermalEquilibrium: 16.2353
+In ThermalEquilibrium: 16.2157
+In ThermalEquilibrium: 16.1961
+In ThermalEquilibrium: 16.1765
+In ThermalEquilibrium: 16.1569
+In ThermalEquilibrium: 16.1373
+In ThermalEquilibrium: 16.1176
+In ThermalEquilibrium: 16.098
+In ThermalEquilibrium: 16.0784
+In ThermalEquilibrium: 16.0588
+In ThermalEquilibrium: 16.0392
+In ThermalEquilibrium: 16.0196
 In ThermalEquilibrium: 16
-In ThermalEquilibrium: 15.8333
+In ThermalEquilibrium: 15.9804
+In ThermalEquilibrium: 15.9608
+In ThermalEquilibrium: 15.9412
+In ThermalEquilibrium: 15.9216
+In ThermalEquilibrium: 15.902
+In ThermalEquilibrium: 15.8824
+In ThermalEquilibrium: 15.8627
+In ThermalEquilibrium: 15.8431
+In ThermalEquilibrium: 15.8235
+In ThermalEquilibrium: 15.8039
+In ThermalEquilibrium: 15.7843
+In ThermalEquilibrium: 15.7647
+In ThermalEquilibrium: 15.7451
+In ThermalEquilibrium: 15.7255
+In ThermalEquilibrium: 15.7059
+In ThermalEquilibrium: 15.6863
 In ThermalEquilibrium: 15.6667
-In ThermalEquilibrium: 15.5
+In ThermalEquilibrium: 15.6471
+In ThermalEquilibrium: 15.6275
+In ThermalEquilibrium: 15.6078
+In ThermalEquilibrium: 15.5882
+In ThermalEquilibrium: 15.5686
+In ThermalEquilibrium: 15.549
+In ThermalEquilibrium: 15.5294
+In ThermalEquilibrium: 15.5098
+In ThermalEquilibrium: 15.4902
+In ThermalEquilibrium: 15.4706
+In ThermalEquilibrium: 15.451
+In ThermalEquilibrium: 15.4314
+In ThermalEquilibrium: 15.4118
+In ThermalEquilibrium: 15.3922
+In ThermalEquilibrium: 15.3725
+In ThermalEquilibrium: 15.3529
 In ThermalEquilibrium: 15.3333
-In ThermalEquilibrium: 15.1667
+In ThermalEquilibrium: 15.3137
+In ThermalEquilibrium: 15.2941
+In ThermalEquilibrium: 15.2745
+In ThermalEquilibrium: 15.2549
+In ThermalEquilibrium: 15.2353
+In ThermalEquilibrium: 15.2157
+In ThermalEquilibrium: 15.1961
+In ThermalEquilibrium: 15.1765
+In ThermalEquilibrium: 15.1569
+In ThermalEquilibrium: 15.1373
+In ThermalEquilibrium: 15.1176
+In ThermalEquilibrium: 15.098
+In ThermalEquilibrium: 15.0784
+In ThermalEquilibrium: 15.0588
+In ThermalEquilibrium: 15.0392
+In ThermalEquilibrium: 15.0196
 In ThermalEquilibrium: 15
-In ThermalEquilibrium: 14.8333
+In ThermalEquilibrium: 14.9804
+In ThermalEquilibrium: 14.9608
+In ThermalEquilibrium: 14.9412
+In ThermalEquilibrium: 14.9216
+In ThermalEquilibrium: 14.902
+In ThermalEquilibrium: 14.8824
+In ThermalEquilibrium: 14.8627
+In ThermalEquilibrium: 14.8431
+In ThermalEquilibrium: 14.8235
+In ThermalEquilibrium: 14.8039
+In ThermalEquilibrium: 14.7843
+In ThermalEquilibrium: 14.7647
+In ThermalEquilibrium: 14.7451
+In ThermalEquilibrium: 14.7255
+In ThermalEquilibrium: 14.7059
+In ThermalEquilibrium: 14.6863
 In ThermalEquilibrium: 14.6667
-In ThermalEquilibrium: 14.5
+In ThermalEquilibrium: 14.6471
+In ThermalEquilibrium: 14.6275
+In ThermalEquilibrium: 14.6078
+In ThermalEquilibrium: 14.5882
+In ThermalEquilibrium: 14.5686
+In ThermalEquilibrium: 14.549
+In ThermalEquilibrium: 14.5294
+In ThermalEquilibrium: 14.5098
+In ThermalEquilibrium: 14.4902
+In ThermalEquilibrium: 14.4706
+In ThermalEquilibrium: 14.451
+In ThermalEquilibrium: 14.4314
+In ThermalEquilibrium: 14.4118
+In ThermalEquilibrium: 14.3922
+In ThermalEquilibrium: 14.3725
+In ThermalEquilibrium: 14.3529
 In ThermalEquilibrium: 14.3333
-In ThermalEquilibrium: 14.1667
+In ThermalEquilibrium: 14.3137
+In ThermalEquilibrium: 14.2941
+In ThermalEquilibrium: 14.2745
+In ThermalEquilibrium: 14.2549
+In ThermalEquilibrium: 14.2353
+In ThermalEquilibrium: 14.2157
+In ThermalEquilibrium: 14.1961
+In ThermalEquilibrium: 14.1765
+In ThermalEquilibrium: 14.1569
+In ThermalEquilibrium: 14.1373
+In ThermalEquilibrium: 14.1176
+In ThermalEquilibrium: 14.098
+In ThermalEquilibrium: 14.0784
+In ThermalEquilibrium: 14.0588
+In ThermalEquilibrium: 14.0392
+In ThermalEquilibrium: 14.0196
 In ThermalEquilibrium: 14
-In ThermalEquilibrium: 13.8333
+In ThermalEquilibrium: 13.9804
+In ThermalEquilibrium: 13.9608
+In ThermalEquilibrium: 13.9412
+In ThermalEquilibrium: 13.9216
+In ThermalEquilibrium: 13.902
+In ThermalEquilibrium: 13.8824
+In ThermalEquilibrium: 13.8627
+In ThermalEquilibrium: 13.8431
+In ThermalEquilibrium: 13.8235
+In ThermalEquilibrium: 13.8039
+In ThermalEquilibrium: 13.7843
+In ThermalEquilibrium: 13.7647
+In ThermalEquilibrium: 13.7451
+In ThermalEquilibrium: 13.7255
+In ThermalEquilibrium: 13.7059
+In ThermalEquilibrium: 13.6863
 In ThermalEquilibrium: 13.6667
-In ThermalEquilibrium: 13.5
+In ThermalEquilibrium: 13.6471
+In ThermalEquilibrium: 13.6275
+In ThermalEquilibrium: 13.6078
+In ThermalEquilibrium: 13.5882
+In ThermalEquilibrium: 13.5686
+In ThermalEquilibrium: 13.549
+In ThermalEquilibrium: 13.5294
+In ThermalEquilibrium: 13.5098
+In ThermalEquilibrium: 13.4902
+In ThermalEquilibrium: 13.4706
+In ThermalEquilibrium: 13.451
+In ThermalEquilibrium: 13.4314
+In ThermalEquilibrium: 13.4118
+In ThermalEquilibrium: 13.3922
+In ThermalEquilibrium: 13.3725
+In ThermalEquilibrium: 13.3529
 In ThermalEquilibrium: 13.3333
-In ThermalEquilibrium: 13.1667
+In ThermalEquilibrium: 13.3137
+In ThermalEquilibrium: 13.2941
+In ThermalEquilibrium: 13.2745
+In ThermalEquilibrium: 13.2549
+In ThermalEquilibrium: 13.2353
+In ThermalEquilibrium: 13.2157
+In ThermalEquilibrium: 13.1961
+In ThermalEquilibrium: 13.1765
+In ThermalEquilibrium: 13.1569
+In ThermalEquilibrium: 13.1373
+In ThermalEquilibrium: 13.1176
+In ThermalEquilibrium: 13.098
+In ThermalEquilibrium: 13.0784
+In ThermalEquilibrium: 13.0588
+In ThermalEquilibrium: 13.0392
+In ThermalEquilibrium: 13.0196
 In ThermalEquilibrium: 13
-In ThermalEquilibrium: 12.8333
+In ThermalEquilibrium: 12.9804
+In ThermalEquilibrium: 12.9608
+In ThermalEquilibrium: 12.9412
+In ThermalEquilibrium: 12.9216
+In ThermalEquilibrium: 12.902
+In ThermalEquilibrium: 12.8824
+In ThermalEquilibrium: 12.8627
+In ThermalEquilibrium: 12.8431
+In ThermalEquilibrium: 12.8235
+In ThermalEquilibrium: 12.8039
+In ThermalEquilibrium: 12.7843
+In ThermalEquilibrium: 12.7647
+In ThermalEquilibrium: 12.7451
+In ThermalEquilibrium: 12.7255
+In ThermalEquilibrium: 12.7059
+In ThermalEquilibrium: 12.6863
 In ThermalEquilibrium: 12.6667
-In ThermalEquilibrium: 12.5
+In ThermalEquilibrium: 12.6471
+In ThermalEquilibrium: 12.6275
+In ThermalEquilibrium: 12.6078
+In ThermalEquilibrium: 12.5882
+In ThermalEquilibrium: 12.5686
+In ThermalEquilibrium: 12.549
+In ThermalEquilibrium: 12.5294
+In ThermalEquilibrium: 12.5098
+In ThermalEquilibrium: 12.4902
+In ThermalEquilibrium: 12.4706
+In ThermalEquilibrium: 12.451
+In ThermalEquilibrium: 12.4314
+In ThermalEquilibrium: 12.4118
+In ThermalEquilibrium: 12.3922
+In ThermalEquilibrium: 12.3725
+In ThermalEquilibrium: 12.3529
 In ThermalEquilibrium: 12.3333
-In ThermalEquilibrium: 12.1667
+In ThermalEquilibrium: 12.3137
+In ThermalEquilibrium: 12.2941
+In ThermalEquilibrium: 12.2745
+In ThermalEquilibrium: 12.2549
+In ThermalEquilibrium: 12.2353
+In ThermalEquilibrium: 12.2157
+In ThermalEquilibrium: 12.1961
+In ThermalEquilibrium: 12.1765
+In ThermalEquilibrium: 12.1569
+In ThermalEquilibrium: 12.1373
+In ThermalEquilibrium: 12.1176
+In ThermalEquilibrium: 12.098
+In ThermalEquilibrium: 12.0784
+In ThermalEquilibrium: 12.0588
+In ThermalEquilibrium: 12.0392
+In ThermalEquilibrium: 12.0196
 In ThermalEquilibrium: 12
-In ThermalEquilibrium: 11.8333
+In ThermalEquilibrium: 11.9804
+In ThermalEquilibrium: 11.9608
+In ThermalEquilibrium: 11.9412
+In ThermalEquilibrium: 11.9216
+In ThermalEquilibrium: 11.902
+In ThermalEquilibrium: 11.8824
+In ThermalEquilibrium: 11.8627
+In ThermalEquilibrium: 11.8431
+In ThermalEquilibrium: 11.8235
+In ThermalEquilibrium: 11.8039
+In ThermalEquilibrium: 11.7843
+In ThermalEquilibrium: 11.7647
+In ThermalEquilibrium: 11.7451
+In ThermalEquilibrium: 11.7255
+In ThermalEquilibrium: 11.7059
+In ThermalEquilibrium: 11.6863
 In ThermalEquilibrium: 11.6667
-In ThermalEquilibrium: 11.5
+In ThermalEquilibrium: 11.6471
+In ThermalEquilibrium: 11.6275
+In ThermalEquilibrium: 11.6078
+In ThermalEquilibrium: 11.5882
+In ThermalEquilibrium: 11.5686
+In ThermalEquilibrium: 11.549
+In ThermalEquilibrium: 11.5294
+In ThermalEquilibrium: 11.5098
+In ThermalEquilibrium: 11.4902
+In ThermalEquilibrium: 11.4706
+In ThermalEquilibrium: 11.451
+In ThermalEquilibrium: 11.4314
+In ThermalEquilibrium: 11.4118
+In ThermalEquilibrium: 11.3922
+In ThermalEquilibrium: 11.3725
+In ThermalEquilibrium: 11.3529
 In ThermalEquilibrium: 11.3333
-In ThermalEquilibrium: 11.1667
+In ThermalEquilibrium: 11.3137
+In ThermalEquilibrium: 11.2941
+In ThermalEquilibrium: 11.2745
+In ThermalEquilibrium: 11.2549
+In ThermalEquilibrium: 11.2353
+In ThermalEquilibrium: 11.2157
+In ThermalEquilibrium: 11.1961
+In ThermalEquilibrium: 11.1765
+In ThermalEquilibrium: 11.1569
+In ThermalEquilibrium: 11.1373
+In ThermalEquilibrium: 11.1176
+In ThermalEquilibrium: 11.098
+In ThermalEquilibrium: 11.0784
+In ThermalEquilibrium: 11.0588
+In ThermalEquilibrium: 11.0392
+In ThermalEquilibrium: 11.0196
 In ThermalEquilibrium: 11
-In ThermalEquilibrium: 10.8333
+In ThermalEquilibrium: 10.9804
+In ThermalEquilibrium: 10.9608
+In ThermalEquilibrium: 10.9412
+In ThermalEquilibrium: 10.9216
+In ThermalEquilibrium: 10.902
+In ThermalEquilibrium: 10.8824
+In ThermalEquilibrium: 10.8627
+In ThermalEquilibrium: 10.8431
+In ThermalEquilibrium: 10.8235
+In ThermalEquilibrium: 10.8039
+In ThermalEquilibrium: 10.7843
+In ThermalEquilibrium: 10.7647
+In ThermalEquilibrium: 10.7451
+In ThermalEquilibrium: 10.7255
+In ThermalEquilibrium: 10.7059
+In ThermalEquilibrium: 10.6863
 In ThermalEquilibrium: 10.6667
-In ThermalEquilibrium: 10.5
+In ThermalEquilibrium: 10.6471
+In ThermalEquilibrium: 10.6275
+In ThermalEquilibrium: 10.6078
+In ThermalEquilibrium: 10.5882
+In ThermalEquilibrium: 10.5686
+In ThermalEquilibrium: 10.549
+In ThermalEquilibrium: 10.5294
+In ThermalEquilibrium: 10.5098
+In ThermalEquilibrium: 10.4902
+In ThermalEquilibrium: 10.4706
+In ThermalEquilibrium: 10.451
+In ThermalEquilibrium: 10.4314
+In ThermalEquilibrium: 10.4118
+In ThermalEquilibrium: 10.3922
+In ThermalEquilibrium: 10.3725
+In ThermalEquilibrium: 10.3529
 In ThermalEquilibrium: 10.3333
-In ThermalEquilibrium: 10.1667
+In ThermalEquilibrium: 10.3137
+In ThermalEquilibrium: 10.2941
+In ThermalEquilibrium: 10.2745
+In ThermalEquilibrium: 10.2549
+In ThermalEquilibrium: 10.2353
+In ThermalEquilibrium: 10.2157
+In ThermalEquilibrium: 10.1961
+In ThermalEquilibrium: 10.1765
+In ThermalEquilibrium: 10.1569
+In ThermalEquilibrium: 10.1373
+In ThermalEquilibrium: 10.1176
+In ThermalEquilibrium: 10.098
+In ThermalEquilibrium: 10.0784
+In ThermalEquilibrium: 10.0588
+In ThermalEquilibrium: 10.0392
+In ThermalEquilibrium: 10.0196
 In ThermalEquilibrium: 10
-In ThermalEquilibrium: 9.83333
+In ThermalEquilibrium: 9.98039
+In ThermalEquilibrium: 9.96078
+In ThermalEquilibrium: 9.94118
+In ThermalEquilibrium: 9.92157
+In ThermalEquilibrium: 9.90196
+In ThermalEquilibrium: 9.88235
+In ThermalEquilibrium: 9.86275
+In ThermalEquilibrium: 9.84314
+In ThermalEquilibrium: 9.82353
+In ThermalEquilibrium: 9.80392
+In ThermalEquilibrium: 9.78431
+In ThermalEquilibrium: 9.76471
+In ThermalEquilibrium: 9.7451
+In ThermalEquilibrium: 9.72549
+In ThermalEquilibrium: 9.70588
+In ThermalEquilibrium: 9.68627
 In ThermalEquilibrium: 9.66667
-In ThermalEquilibrium: 9.5
+In ThermalEquilibrium: 9.64706
+In ThermalEquilibrium: 9.62745
+In ThermalEquilibrium: 9.60784
+In ThermalEquilibrium: 9.58824
+In ThermalEquilibrium: 9.56863
+In ThermalEquilibrium: 9.54902
+In ThermalEquilibrium: 9.52941
+In ThermalEquilibrium: 9.5098
+In ThermalEquilibrium: 9.4902
+In ThermalEquilibrium: 9.47059
+In ThermalEquilibrium: 9.45098
+In ThermalEquilibrium: 9.43137
+In ThermalEquilibrium: 9.41176
+In ThermalEquilibrium: 9.39216
+In ThermalEquilibrium: 9.37255
+In ThermalEquilibrium: 9.35294
 In ThermalEquilibrium: 9.33333
-In ThermalEquilibrium: 9.16667
+In ThermalEquilibrium: 9.31373
+In ThermalEquilibrium: 9.29412
+In ThermalEquilibrium: 9.27451
+In ThermalEquilibrium: 9.2549
+In ThermalEquilibrium: 9.23529
+In ThermalEquilibrium: 9.21569
+In ThermalEquilibrium: 9.19608
+In ThermalEquilibrium: 9.17647
+In ThermalEquilibrium: 9.15686
+In ThermalEquilibrium: 9.13725
+In ThermalEquilibrium: 9.11765
+In ThermalEquilibrium: 9.09804
+In ThermalEquilibrium: 9.07843
+In ThermalEquilibrium: 9.05882
+In ThermalEquilibrium: 9.03922
+In ThermalEquilibrium: 9.01961
 In ThermalEquilibrium: 9
-In ThermalEquilibrium: 8.83333
+In ThermalEquilibrium: 8.98039
+In ThermalEquilibrium: 8.96078
+In ThermalEquilibrium: 8.94118
+In ThermalEquilibrium: 8.92157
+In ThermalEquilibrium: 8.90196
+In ThermalEquilibrium: 8.88235
+In ThermalEquilibrium: 8.86275
+In ThermalEquilibrium: 8.84314
+In ThermalEquilibrium: 8.82353
+In ThermalEquilibrium: 8.80392
+In ThermalEquilibrium: 8.78431
+In ThermalEquilibrium: 8.76471
+In ThermalEquilibrium: 8.7451
+In ThermalEquilibrium: 8.72549
+In ThermalEquilibrium: 8.70588
+In ThermalEquilibrium: 8.68627
 In ThermalEquilibrium: 8.66667
-In ThermalEquilibrium: 8.5
+In ThermalEquilibrium: 8.64706
+In ThermalEquilibrium: 8.62745
+In ThermalEquilibrium: 8.60784
+In ThermalEquilibrium: 8.58824
+In ThermalEquilibrium: 8.56863
+In ThermalEquilibrium: 8.54902
+In ThermalEquilibrium: 8.52941
+In ThermalEquilibrium: 8.5098
+In ThermalEquilibrium: 8.4902
+In ThermalEquilibrium: 8.47059
+In ThermalEquilibrium: 8.45098
+In ThermalEquilibrium: 8.43137
+In ThermalEquilibrium: 8.41176
+In ThermalEquilibrium: 8.39216
+In ThermalEquilibrium: 8.37255
+In ThermalEquilibrium: 8.35294
 In ThermalEquilibrium: 8.33333
-In ThermalEquilibrium: 8.16667
+In ThermalEquilibrium: 8.31373
+In ThermalEquilibrium: 8.29412
+In ThermalEquilibrium: 8.27451
+In ThermalEquilibrium: 8.2549
+In ThermalEquilibrium: 8.23529
+In ThermalEquilibrium: 8.21569
+In ThermalEquilibrium: 8.19608
+In ThermalEquilibrium: 8.17647
+In ThermalEquilibrium: 8.15686
+In ThermalEquilibrium: 8.13725
+In ThermalEquilibrium: 8.11765
+In ThermalEquilibrium: 8.09804
+In ThermalEquilibrium: 8.07843
+In ThermalEquilibrium: 8.05882
+In ThermalEquilibrium: 8.03922
+In ThermalEquilibrium: 8.01961
 In ThermalEquilibrium: 8
-In ThermalEquilibrium: 7.83333
+In ThermalEquilibrium: 7.98039
+In ThermalEquilibrium: 7.96078
+In ThermalEquilibrium: 7.94118
+In ThermalEquilibrium: 7.92157
+In ThermalEquilibrium: 7.90196
+In ThermalEquilibrium: 7.88235
+In ThermalEquilibrium: 7.86275
+In ThermalEquilibrium: 7.84314
+In ThermalEquilibrium: 7.82353
+In ThermalEquilibrium: 7.80392
+In ThermalEquilibrium: 7.78431
+In ThermalEquilibrium: 7.76471
+In ThermalEquilibrium: 7.7451
+In ThermalEquilibrium: 7.72549
+In ThermalEquilibrium: 7.70588
+In ThermalEquilibrium: 7.68627
 In ThermalEquilibrium: 7.66667
-In ThermalEquilibrium: 7.5
+In ThermalEquilibrium: 7.64706
+In ThermalEquilibrium: 7.62745
+In ThermalEquilibrium: 7.60784
+In ThermalEquilibrium: 7.58824
+In ThermalEquilibrium: 7.56863
+In ThermalEquilibrium: 7.54902
+In ThermalEquilibrium: 7.52941
+In ThermalEquilibrium: 7.5098
+In ThermalEquilibrium: 7.4902
+In ThermalEquilibrium: 7.47059
+In ThermalEquilibrium: 7.45098
+In ThermalEquilibrium: 7.43137
+In ThermalEquilibrium: 7.41176
+In ThermalEquilibrium: 7.39216
+In ThermalEquilibrium: 7.37255
+In ThermalEquilibrium: 7.35294
 In ThermalEquilibrium: 7.33333
-In ThermalEquilibrium: 7.16667
+In ThermalEquilibrium: 7.31373
+In ThermalEquilibrium: 7.29412
+In ThermalEquilibrium: 7.27451
+In ThermalEquilibrium: 7.2549
+In ThermalEquilibrium: 7.23529
+In ThermalEquilibrium: 7.21569
+In ThermalEquilibrium: 7.19608
+In ThermalEquilibrium: 7.17647
+In ThermalEquilibrium: 7.15686
+In ThermalEquilibrium: 7.13725
+In ThermalEquilibrium: 7.11765
+In ThermalEquilibrium: 7.09804
+In ThermalEquilibrium: 7.07843
+In ThermalEquilibrium: 7.05882
+In ThermalEquilibrium: 7.03922
+In ThermalEquilibrium: 7.01961
 In ThermalEquilibrium: 7
-In ThermalEquilibrium: 6.83333
+In ThermalEquilibrium: 6.98039
+In ThermalEquilibrium: 6.96078
+In ThermalEquilibrium: 6.94118
+In ThermalEquilibrium: 6.92157
+In ThermalEquilibrium: 6.90196
+In ThermalEquilibrium: 6.88235
+In ThermalEquilibrium: 6.86275
+In ThermalEquilibrium: 6.84314
+In ThermalEquilibrium: 6.82353
+In ThermalEquilibrium: 6.80392
+In ThermalEquilibrium: 6.78431
+In ThermalEquilibrium: 6.76471
+In ThermalEquilibrium: 6.7451
+In ThermalEquilibrium: 6.72549
+In ThermalEquilibrium: 6.70588
+In ThermalEquilibrium: 6.68627
 In ThermalEquilibrium: 6.66667
-In ThermalEquilibrium: 6.5
+In ThermalEquilibrium: 6.64706
+In ThermalEquilibrium: 6.62745
+In ThermalEquilibrium: 6.60784
+In ThermalEquilibrium: 6.58824
+In ThermalEquilibrium: 6.56863
+In ThermalEquilibrium: 6.54902
+In ThermalEquilibrium: 6.52941
+In ThermalEquilibrium: 6.5098
+In ThermalEquilibrium: 6.4902
+In ThermalEquilibrium: 6.47059
+In ThermalEquilibrium: 6.45098
+In ThermalEquilibrium: 6.43137
+In ThermalEquilibrium: 6.41176
+In ThermalEquilibrium: 6.39216
+In ThermalEquilibrium: 6.37255
+In ThermalEquilibrium: 6.35294
 In ThermalEquilibrium: 6.33333
-In ThermalEquilibrium: 6.16667
+In ThermalEquilibrium: 6.31373
+In ThermalEquilibrium: 6.29412
+In ThermalEquilibrium: 6.27451
+In ThermalEquilibrium: 6.2549
+In ThermalEquilibrium: 6.23529
+In ThermalEquilibrium: 6.21569
+In ThermalEquilibrium: 6.19608
+In ThermalEquilibrium: 6.17647
+In ThermalEquilibrium: 6.15686
+In ThermalEquilibrium: 6.13725
+In ThermalEquilibrium: 6.11765
+In ThermalEquilibrium: 6.09804
+In ThermalEquilibrium: 6.07843
+In ThermalEquilibrium: 6.05882
+In ThermalEquilibrium: 6.03922
+In ThermalEquilibrium: 6.01961
 In ThermalEquilibrium: 6
-In ThermalEquilibrium: 5.83333
+In ThermalEquilibrium: 5.98039
+In ThermalEquilibrium: 5.96078
+In ThermalEquilibrium: 5.94118
+In ThermalEquilibrium: 5.92157
+In ThermalEquilibrium: 5.90196
+In ThermalEquilibrium: 5.88235
+In ThermalEquilibrium: 5.86275
+In ThermalEquilibrium: 5.84314
+In ThermalEquilibrium: 5.82353
+In ThermalEquilibrium: 5.80392
+In ThermalEquilibrium: 5.78431
+In ThermalEquilibrium: 5.76471
+In ThermalEquilibrium: 5.7451
+In ThermalEquilibrium: 5.72549
+In ThermalEquilibrium: 5.70588
+In ThermalEquilibrium: 5.68627
 In ThermalEquilibrium: 5.66667
-In ThermalEquilibrium: 5.5
+In ThermalEquilibrium: 5.64706
+In ThermalEquilibrium: 5.62745
+In ThermalEquilibrium: 5.60784
+In ThermalEquilibrium: 5.58824
+In ThermalEquilibrium: 5.56863
+In ThermalEquilibrium: 5.54902
+In ThermalEquilibrium: 5.52941
+In ThermalEquilibrium: 5.5098
+In ThermalEquilibrium: 5.4902
+In ThermalEquilibrium: 5.47059
+In ThermalEquilibrium: 5.45098
+In ThermalEquilibrium: 5.43137
+In ThermalEquilibrium: 5.41176
+In ThermalEquilibrium: 5.39216
+In ThermalEquilibrium: 5.37255
+In ThermalEquilibrium: 5.35294
 In ThermalEquilibrium: 5.33333
-In ThermalEquilibrium: 5.16667
+In ThermalEquilibrium: 5.31373
+In ThermalEquilibrium: 5.29412
+In ThermalEquilibrium: 5.27451
+In ThermalEquilibrium: 5.2549
+In ThermalEquilibrium: 5.23529
+In ThermalEquilibrium: 5.21569
+In ThermalEquilibrium: 5.19608
+In ThermalEquilibrium: 5.17647
+In ThermalEquilibrium: 5.15686
+In ThermalEquilibrium: 5.13725
+In ThermalEquilibrium: 5.11765
+In ThermalEquilibrium: 5.09804
+In ThermalEquilibrium: 5.07843
+In ThermalEquilibrium: 5.05882
+In ThermalEquilibrium: 5.03922
+In ThermalEquilibrium: 5.01961
 In ThermalEquilibrium: 5
-In ThermalEquilibrium: 4.83333
+In ThermalEquilibrium: 4.98039
+In ThermalEquilibrium: 4.96078
+In ThermalEquilibrium: 4.94118
+In ThermalEquilibrium: 4.92157
+In ThermalEquilibrium: 4.90196
+In ThermalEquilibrium: 4.88235
+In ThermalEquilibrium: 4.86275
+In ThermalEquilibrium: 4.84314
+In ThermalEquilibrium: 4.82353
+In ThermalEquilibrium: 4.80392
+In ThermalEquilibrium: 4.78431
+In ThermalEquilibrium: 4.76471
+In ThermalEquilibrium: 4.7451
+In ThermalEquilibrium: 4.72549
+In ThermalEquilibrium: 4.70588
+In ThermalEquilibrium: 4.68627
 In ThermalEquilibrium: 4.66667
-In ThermalEquilibrium: 4.5
+In ThermalEquilibrium: 4.64706
+In ThermalEquilibrium: 4.62745
+In ThermalEquilibrium: 4.60784
+In ThermalEquilibrium: 4.58824
+In ThermalEquilibrium: 4.56863
+In ThermalEquilibrium: 4.54902
+In ThermalEquilibrium: 4.52941
+In ThermalEquilibrium: 4.5098
+In ThermalEquilibrium: 4.4902
+In ThermalEquilibrium: 4.47059
+In ThermalEquilibrium: 4.45098
+In ThermalEquilibrium: 4.43137
+In ThermalEquilibrium: 4.41176
+In ThermalEquilibrium: 4.39216
+In ThermalEquilibrium: 4.37255
+In ThermalEquilibrium: 4.35294
 In ThermalEquilibrium: 4.33333
-In ThermalEquilibrium: 4.16667
+In ThermalEquilibrium: 4.31373
+In ThermalEquilibrium: 4.29412
+In ThermalEquilibrium: 4.27451
+In ThermalEquilibrium: 4.2549
+In ThermalEquilibrium: 4.23529
+In ThermalEquilibrium: 4.21569
+In ThermalEquilibrium: 4.19608
+In ThermalEquilibrium: 4.17647
+In ThermalEquilibrium: 4.15686
+In ThermalEquilibrium: 4.13725
+In ThermalEquilibrium: 4.11765
+In ThermalEquilibrium: 4.09804
+In ThermalEquilibrium: 4.07843
+In ThermalEquilibrium: 4.05882
+In ThermalEquilibrium: 4.03922
+In ThermalEquilibrium: 4.01961
 In ThermalEquilibrium: 4
-In ThermalEquilibrium: 3.83333
+In ThermalEquilibrium: 3.98039
+In ThermalEquilibrium: 3.96078
+In ThermalEquilibrium: 3.94118
+In ThermalEquilibrium: 3.92157
+In ThermalEquilibrium: 3.90196
+In ThermalEquilibrium: 3.88235
+In ThermalEquilibrium: 3.86275
+In ThermalEquilibrium: 3.84314
+In ThermalEquilibrium: 3.82353
+In ThermalEquilibrium: 3.80392
+In ThermalEquilibrium: 3.78431
+In ThermalEquilibrium: 3.76471
+In ThermalEquilibrium: 3.7451
+In ThermalEquilibrium: 3.72549
+In ThermalEquilibrium: 3.70588
+In ThermalEquilibrium: 3.68627
 In ThermalEquilibrium: 3.66667
-In ThermalEquilibrium: 3.5
+In ThermalEquilibrium: 3.64706
+In ThermalEquilibrium: 3.62745
+In ThermalEquilibrium: 3.60784
+In ThermalEquilibrium: 3.58824
+In ThermalEquilibrium: 3.56863
+In ThermalEquilibrium: 3.54902
+In ThermalEquilibrium: 3.52941
+In ThermalEquilibrium: 3.5098
+In ThermalEquilibrium: 3.4902
+In ThermalEquilibrium: 3.47059
+In ThermalEquilibrium: 3.45098
+In ThermalEquilibrium: 3.43137
+In ThermalEquilibrium: 3.41176
+In ThermalEquilibrium: 3.39216
+In ThermalEquilibrium: 3.37255
+In ThermalEquilibrium: 3.35294
 In ThermalEquilibrium: 3.33333
-In ThermalEquilibrium: 3.16667
+In ThermalEquilibrium: 3.31373
+In ThermalEquilibrium: 3.29412
+In ThermalEquilibrium: 3.27451
+In ThermalEquilibrium: 3.2549
+In ThermalEquilibrium: 3.23529
+In ThermalEquilibrium: 3.21569
+In ThermalEquilibrium: 3.19608
+In ThermalEquilibrium: 3.17647
+In ThermalEquilibrium: 3.15686
+In ThermalEquilibrium: 3.13725
+In ThermalEquilibrium: 3.11765
+In ThermalEquilibrium: 3.09804
+In ThermalEquilibrium: 3.07843
+In ThermalEquilibrium: 3.05882
+In ThermalEquilibrium: 3.03922
+In ThermalEquilibrium: 3.01961
 In ThermalEquilibrium: 3
-In ThermalEquilibrium: 2.83333
+In ThermalEquilibrium: 2.98039
+In ThermalEquilibrium: 2.96078
+In ThermalEquilibrium: 2.94118
+In ThermalEquilibrium: 2.92157
+In ThermalEquilibrium: 2.90196
+In ThermalEquilibrium: 2.88235
+In ThermalEquilibrium: 2.86275
+In ThermalEquilibrium: 2.84314
+In ThermalEquilibrium: 2.82353
+In ThermalEquilibrium: 2.80392
+In ThermalEquilibrium: 2.78431
+In ThermalEquilibrium: 2.76471
+In ThermalEquilibrium: 2.7451
+In ThermalEquilibrium: 2.72549
+In ThermalEquilibrium: 2.70588
+In ThermalEquilibrium: 2.68627
 In ThermalEquilibrium: 2.66667
-In ThermalEquilibrium: 2.5
+In ThermalEquilibrium: 2.64706
+In ThermalEquilibrium: 2.62745
+In ThermalEquilibrium: 2.60784
+In ThermalEquilibrium: 2.58824
+In ThermalEquilibrium: 2.56863
+In ThermalEquilibrium: 2.54902
+In ThermalEquilibrium: 2.52941
+In ThermalEquilibrium: 2.5098
+In ThermalEquilibrium: 2.4902
+In ThermalEquilibrium: 2.47059
+In ThermalEquilibrium: 2.45098
+In ThermalEquilibrium: 2.43137
+In ThermalEquilibrium: 2.41176
+In ThermalEquilibrium: 2.39216
+In ThermalEquilibrium: 2.37255
+In ThermalEquilibrium: 2.35294
 In ThermalEquilibrium: 2.33333
-In ThermalEquilibrium: 2.16667
+In ThermalEquilibrium: 2.31373
+In ThermalEquilibrium: 2.29412
+In ThermalEquilibrium: 2.27451
+In ThermalEquilibrium: 2.2549
+In ThermalEquilibrium: 2.23529
+In ThermalEquilibrium: 2.21569
+In ThermalEquilibrium: 2.19608
+In ThermalEquilibrium: 2.17647
+In ThermalEquilibrium: 2.15686
+In ThermalEquilibrium: 2.13725
+In ThermalEquilibrium: 2.11765
+In ThermalEquilibrium: 2.09804
+In ThermalEquilibrium: 2.07843
+In ThermalEquilibrium: 2.05882
+In ThermalEquilibrium: 2.03922
+In ThermalEquilibrium: 2.01961
 In ThermalEquilibrium: 2
 HPWL before SA 19525668
-HPWL after  SA 18015812
-Difference      1509856
+HPWL after  SA 17074406
+Difference      2451262
 Output....
 Check if placement violate the constraint...
-Legal!
-Time difference (sec) = 75.8686
+macros number 979 is not legal.
+x: 186 186 , 0 211y: 120 120 , 0 120
+Time difference (sec) = 850.572
 
 ****** Vivado v2021.1 (64-bit)
   **** SW Build 3247384 on Thu Jun 10 19:36:07 MDT 2021
@@ -132,9 +1033,9 @@ Command: open_checkpoint ./design.dcp
 
 Starting open_checkpoint Task
 
-Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2524.590 ; gain = 0.000 ; free physical = 26002 ; free virtual = 47753
+Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 2530.523 ; gain = 2.969 ; free physical = 3633 ; free virtual = 16019
 INFO: [Device 21-403] Loading part xcvu3p-ffvc1517-1-i
-Netlist sorting complete. Time (s): cpu = 00:00:02 ; elapsed = 00:00:02 . Memory (MB): peak = 3248.863 ; gain = 0.000 ; free physical = 24530 ; free virtual = 46271
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:01 . Memory (MB): peak = 3248.797 ; gain = 0.000 ; free physical = 2950 ; free virtual = 15337
 INFO: [Netlist 29-17] Analyzing 2100 Unisim elements for replacement
 INFO: [Netlist 29-28] Unisim Transformation completed in 8 CPU seconds
 WARNING: [Netlist 29-43] Netlist 'Design_1_65_STDB' is not ideal for floorplanning, since the cellview 'Design_1_65_STDB' defined in file 'Design_1_65_STDB.v' contains large number of primitives.  Please consider enabling hierarchy in synthesis if you want to do floorplanning.
@@ -146,14 +1047,14 @@ INFO: [Project 1-856] Restoring constraints from binary archive.
 INFO: [Constraints 18-5170] The checkpoint was created with non-default parameter values which do not match the current Vivado settings.  Mismatching parameters are:
   general.maxThreads
 INFO: [Project 1-853] Binary constraint restore complete.
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 4335.355 ; gain = 0.000 ; free physical = 23779 ; free virtual = 45522
+Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.04 . Memory (MB): peak = 4335.297 ; gain = 0.000 ; free physical = 2210 ; free virtual = 14592
 INFO: [Project 1-111] Unisim Transformation Summary:
   A total of 2100 instances were transformed.
   DSP48E2 => DSP48E2 (DSP_ALU, DSP_A_B_DATA, DSP_C_DATA, DSP_MULTIPLIER, DSP_M_DATA, DSP_OUTPUT, DSP_PREADD, DSP_PREADD_DATA): 1824 instances
   IBUF => IBUF (IBUFCTRL, INBUF): 276 instances
 
 INFO: [Project 1-604] Checkpoint was created with Vivado v2021.1 (64-bit) build 3247384
-open_checkpoint: Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 4335.355 ; gain = 1810.766 ; free physical = 23774 ; free virtual = 45518
+open_checkpoint: Time (s): cpu = 00:00:54 ; elapsed = 00:00:56 . Memory (MB): peak = 4335.297 ; gain = 1810.711 ; free physical = 2205 ; free virtual = 14590
 # set_param place.timingDriven false
 # place_design  -macro_placement macroplacement.pl -verbose
 Command: place_design -macro_placement macroplacement.pl -verbose
@@ -174,29 +1075,29 @@ INFO: [Place 30-611] Multithreading enabled for place_design using a maximum of 
 Phase 1 Placer Initialization
 
 Phase 1.1 Placer Initialization Netlist Sorting
-Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 6674.473 ; gain = 0.000 ; free physical = 21400 ; free virtual = 43154
+Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.07 . Memory (MB): peak = 6665.125 ; gain = 0.000 ; free physical = 501 ; free virtual = 12249
 Phase 1.1 Placer Initialization Netlist Sorting | Checksum: d7341d87
 
-Time (s): cpu = 00:00:00.13 ; elapsed = 00:00:00.14 . Memory (MB): peak = 6674.473 ; gain = 0.000 ; free physical = 21400 ; free virtual = 43154
-Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 6674.473 ; gain = 0.000 ; free physical = 21400 ; free virtual = 43155
+Time (s): cpu = 00:00:00.15 ; elapsed = 00:00:00.18 . Memory (MB): peak = 6665.125 ; gain = 0.000 ; free physical = 501 ; free virtual = 12249
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 6665.125 ; gain = 0.000 ; free physical = 500 ; free virtual = 12248
 
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device
 Phase 1.2 IO Placement/ Clock Placement/ Build Placer Device | Checksum: 15e3d78a8
 
-Time (s): cpu = 00:01:09 ; elapsed = 00:00:59 . Memory (MB): peak = 6763.312 ; gain = 88.840 ; free physical = 21337 ; free virtual = 43091
+Time (s): cpu = 00:01:10 ; elapsed = 00:01:00 . Memory (MB): peak = 6763.809 ; gain = 98.684 ; free physical = 538 ; free virtual = 12184
 
 Phase 1.3 Build Placer Netlist Model
 Phase 1.3 Build Placer Netlist Model | Checksum: 23da6ff4c
 
-Time (s): cpu = 00:01:23 ; elapsed = 00:01:13 . Memory (MB): peak = 7240.500 ; gain = 566.027 ; free physical = 20902 ; free virtual = 42658
+Time (s): cpu = 00:01:25 ; elapsed = 00:01:14 . Memory (MB): peak = 7245.996 ; gain = 580.871 ; free physical = 635 ; free virtual = 11802
 
 Phase 1.4 Constrain Clocks/Macros
 Phase 1.4 Constrain Clocks/Macros | Checksum: 23da6ff4c
 
-Time (s): cpu = 00:01:24 ; elapsed = 00:01:14 . Memory (MB): peak = 7240.500 ; gain = 566.027 ; free physical = 20897 ; free virtual = 42653
+Time (s): cpu = 00:01:25 ; elapsed = 00:01:15 . Memory (MB): peak = 7245.996 ; gain = 580.871 ; free physical = 631 ; free virtual = 11798
 Phase 1 Placer Initialization | Checksum: 23da6ff4c
 
-Time (s): cpu = 00:01:24 ; elapsed = 00:01:14 . Memory (MB): peak = 7240.500 ; gain = 566.027 ; free physical = 20861 ; free virtual = 42617
+Time (s): cpu = 00:01:26 ; elapsed = 00:01:15 . Memory (MB): peak = 7245.996 ; gain = 580.871 ; free physical = 596 ; free virtual = 11763
 
 Phase 2 Global Placement
 
@@ -205,316 +1106,3 @@ Phase 2.1 Floorplanning
 Phase 2.1.1 Partition Driven Placement
 
 Phase 2.1.1.1 PBP: Partition Driven Placement
-Phase 2.1.1.1 PBP: Partition Driven Placement | Checksum: 24a687a7e
-
-Time (s): cpu = 00:07:50 ; elapsed = 00:03:45 . Memory (MB): peak = 8095.070 ; gain = 1420.598 ; free physical = 20292 ; free virtual = 42056
-
-Phase 2.1.1.2 PBP: Clock Region Placement
-Phase 2.1.1.2 PBP: Clock Region Placement | Checksum: 149b03f23
-
-Time (s): cpu = 00:08:08 ; elapsed = 00:04:04 . Memory (MB): peak = 8095.070 ; gain = 1420.598 ; free physical = 20202 ; free virtual = 41969
-
-Phase 2.1.1.3 PBP: Discrete Incremental
-Phase 2.1.1.3 PBP: Discrete Incremental | Checksum: 15158c720
-
-Time (s): cpu = 00:08:13 ; elapsed = 00:04:09 . Memory (MB): peak = 8095.070 ; gain = 1420.598 ; free physical = 20191 ; free virtual = 41958
-
-Phase 2.1.1.4 PBP: Compute Congestion
-Phase 2.1.1.4 PBP: Compute Congestion | Checksum: 15158c720
-
-Time (s): cpu = 00:08:20 ; elapsed = 00:04:12 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20159 ; free virtual = 41925
-
-Phase 2.1.1.5 PBP: Macro Placement
-Phase 2.1.1.5 PBP: Macro Placement | Checksum: 11fa9d3f6
-
-Time (s): cpu = 00:08:37 ; elapsed = 00:04:28 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 19983 ; free virtual = 41750
-
-Phase 2.1.1.6 PBP: Add part constraints
-Phase 2.1.1.6 PBP: Add part constraints | Checksum: 11fa9d3f6
-
-Time (s): cpu = 00:08:40 ; elapsed = 00:04:31 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 19890 ; free virtual = 41657
-Phase 2.1.1 Partition Driven Placement | Checksum: 11fa9d3f6
-
-Time (s): cpu = 00:08:41 ; elapsed = 00:04:32 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20225 ; free virtual = 41991
-Phase 2.1 Floorplanning | Checksum: 11fa9d3f6
-
-Time (s): cpu = 00:08:42 ; elapsed = 00:04:34 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20225 ; free virtual = 41991
-
-Phase 2.2 Update Timing before SLR Path Opt
-Phase 2.2 Update Timing before SLR Path Opt | Checksum: 11fa9d3f6
-
-Time (s): cpu = 00:08:43 ; elapsed = 00:04:35 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20225 ; free virtual = 41992
-
-Phase 2.3 Post-Processing in Floorplanning
-Phase 2.3 Post-Processing in Floorplanning | Checksum: 11fa9d3f6
-
-Time (s): cpu = 00:08:45 ; elapsed = 00:04:36 . Memory (MB): peak = 8127.086 ; gain = 1452.613 ; free physical = 20223 ; free virtual = 41990
-INFO: [Place 30-2096]  
-INFO: [Place 30-950] Reading placement information from file: macroplacement.pl.
-Reading macro placement from macroplacement.pl
-INFO: [Place 30-949] Number of instances to place 2320.
-Placed 2320 macros
-Failed to place 0 macros
-number of non-macro blocks 0
-INFO: [#UNDEF] Number of sites successfully placed '2320'.
-INFO: [Place 30-948] Number of instances successfully placed 2320.
-
-Phase 2.4 Global Placement Core
-runGP 0
-runGP 1
-runGP 2
-runGP 3
-runGP 4
-runGP 5
-runGP 6
-doQPIterations 0
-doQPIterations 1
-doQPIterations 3
-doQPIterations 4
-doQPIterations 5
-doQPIterations 7
-runSimPLFlow 0
-runSimPLFlow 1
-runSimPLFlow 2
-runSimPLFlow 3
-runSimPLFlow 4
-runSimPLFlow 7
-runSimPLFlow 8
-runSimPLFlow 9
-runSimPLFlow 10
-runSimPLFlow 11
-runSimPLFlow 12
-runSimPLFlow 13
-runSimPLFlow 15
-runSimPLFlow 16
-runSimPLFlow 16a.1
-runSimPLFlow 16a.4
-runSimPLFlow 16a.5
-runSimPLFlow 16a.7
-runSimPLFlow 16a.9
-runSimPLFlow 16a.12
-runSimPLFlow 16a.13
-runSimPLFlow 16a.14
-runSimPLFlow 16a.17
-run 0
-doPreIteration 0
-doPreIteration 1
-doPreIteration 2
-doPreIteration 3
-doPreIteration 4
-doPreIteration 5
-doPreIteration 6
-doPreIteration r
-doPreIteration 0
-doPreIteration 0
-doPreIteration 0
-doPreIteration 0
-doPreIteration 0
-doPreIteration 8
-doPreIteration 9
-run 1
-run 2
-doIteration 0
-doIteration 1
-doIteration 2
-run 3
-doPostteration 0
-doPostteration 1
-doPostteration 2
-doPostteration 3
-doPostteration 4
-doPostteration 5
-doPostteration 6
-doPostteration 7
-doPostteration 8
-doPostteration 9
-run 4
-runSimPLFlow 16a.18
-runSimPLFlow 16a.19
-runSimPLFlow 16a.20
-runSimPLFlow 16a.22
-runSimPLFlow 17
-runSimPLFlow 19
-runSimPLFlow 20
-runSimPLFlow 21
-runSimPLFlow 22
-runSimPLFlow 23
-runSimPLFlow 24
-doQPIterations 9
-doQPIterations 10
-doQPIterations 11
-doQPIterations 13
-doQPIterations 14
-doQPIterations 16
-doQPIterations 17
-doQPIterations 18
-runGP 7
-runGP 8
-runGP 9
-runGP 10
-runGP 11
-runGP 12
-WARNING: [Place 46-29] place_design is not in timing mode. Skip physical synthesis in placer
-runGP 13
-runGP 14
-runGP 15
-runGP 16
-runGP 17
-runGP 18
-Phase 2.4 Global Placement Core | Checksum: 17b340df1
-
-Time (s): cpu = 00:23:27 ; elapsed = 00:10:01 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19908 ; free virtual = 41694
-Phase 2 Global Placement | Checksum: 17b340df1
-
-Time (s): cpu = 00:23:28 ; elapsed = 00:10:02 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 20086 ; free virtual = 41872
-
-Phase 3 Detail Placement
-
-Phase 3.1 Commit Multi Column Macros
-Phase 3.1 Commit Multi Column Macros | Checksum: 17b340df1
-
-Time (s): cpu = 00:24:06 ; elapsed = 00:10:11 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 20080 ; free virtual = 41865
-
-Phase 3.2 Commit Most Macros & LUTRAMs
-Phase 3.2 Commit Most Macros & LUTRAMs | Checksum: 17b340df1
-
-Time (s): cpu = 00:24:07 ; elapsed = 00:10:13 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 20080 ; free virtual = 41865
-
-Phase 3.3 Small Shape DP
-
-Phase 3.3.1 Small Shape Clustering
-Phase 3.3.1 Small Shape Clustering | Checksum: 21eb0b410
-
-Time (s): cpu = 00:25:42 ; elapsed = 00:10:47 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19567 ; free virtual = 41357
-
-Phase 3.3.2 Flow Legalize Slice Clusters
-Phase 3.3.2 Flow Legalize Slice Clusters | Checksum: 239273075
-
-Time (s): cpu = 00:26:19 ; elapsed = 00:10:57 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19560 ; free virtual = 41351
-
-Phase 3.3.3 Slice Area Swap
-Phase 3.3.3 Slice Area Swap | Checksum: 2006221a1
-
-Time (s): cpu = 00:26:37 ; elapsed = 00:11:12 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 18131 ; free virtual = 39922
-Phase 3.3 Small Shape DP | Checksum: 11bddbd35
-
-Time (s): cpu = 00:29:45 ; elapsed = 00:12:01 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19453 ; free virtual = 41251
-
-Phase 3.4 Place Remaining
-Phase 3.4 Place Remaining | Checksum: 14687620b
-
-Time (s): cpu = 00:29:57 ; elapsed = 00:12:13 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19397 ; free virtual = 41198
-
-Phase 3.5 Re-assign LUT pins
-Phase 3.5 Re-assign LUT pins | Checksum: 14687620b
-
-Time (s): cpu = 00:30:46 ; elapsed = 00:12:35 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19416 ; free virtual = 41217
-
-Phase 3.6 Pipeline Register Optimization
-Phase 3.6 Pipeline Register Optimization | Checksum: 178f4c3f3
-
-Time (s): cpu = 00:30:49 ; elapsed = 00:12:39 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19408 ; free virtual = 41209
-Phase 3 Detail Placement | Checksum: 178f4c3f3
-
-Time (s): cpu = 00:30:51 ; elapsed = 00:12:41 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19412 ; free virtual = 41213
-
-Phase 4 Post Placement Optimization and Clean-Up
-
-Phase 4.1 Post Commit Optimization
-Phase 4.1 Post Commit Optimization | Checksum: 178f4c3f3
-
-Time (s): cpu = 00:31:30 ; elapsed = 00:12:52 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19402 ; free virtual = 41203
-WARNING: [Place 46-14] The placer has determined that this design is highly congested and may have difficulty routing. Run report_design_analysis -congestion for a detailed report.
-
-Phase 4.2 Post Placement Cleanup
-Phase 4.2 Post Placement Cleanup | Checksum: 1246ba00f
-
-Time (s): cpu = 00:35:27 ; elapsed = 00:16:24 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19371 ; free virtual = 41180
-
-Phase 4.3 Placer Reporting
-
-Phase 4.3.1 Print Estimated Congestion
-INFO: [Place 30-612] Post-Placement Estimated Congestion 
- ________________________________________________________________________
-|           | Global Congestion | Long Congestion   | Short Congestion  |
-| Direction | Region Size       | Region Size       | Region Size       |
-|___________|___________________|___________________|___________________|
-|      North|              64x64|              64x64|                4x4|
-|___________|___________________|___________________|___________________|
-|      South|              64x64|              64x64|                4x4|
-|___________|___________________|___________________|___________________|
-|       East|              32x32|              64x64|                8x8|
-|___________|___________________|___________________|___________________|
-|       West|              32x32|              64x64|                8x8|
-|___________|___________________|___________________|___________________|
-
-Phase 4.3.1 Print Estimated Congestion | Checksum: 1246ba00f
-
-Time (s): cpu = 00:35:30 ; elapsed = 00:16:26 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19365 ; free virtual = 41176
-Phase 4.3 Placer Reporting | Checksum: 1246ba00f
-
-Time (s): cpu = 00:35:32 ; elapsed = 00:16:29 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19366 ; free virtual = 41177
-
-Phase 4.4 Final Placement Cleanup
-Netlist sorting complete. Time (s): cpu = 00:00:00.05 ; elapsed = 00:00:00.05 . Memory (MB): peak = 9109.523 ; gain = 0.000 ; free physical = 19383 ; free virtual = 41194
-
-Time (s): cpu = 00:35:32 ; elapsed = 00:16:29 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19383 ; free virtual = 41194
-Phase 4 Post Placement Optimization and Clean-Up | Checksum: 199e2475e
-
-Time (s): cpu = 00:35:35 ; elapsed = 00:16:31 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19382 ; free virtual = 41193
-Ending Placer Task | Checksum: 15a64ec8a
-
-Time (s): cpu = 00:35:35 ; elapsed = 00:16:31 . Memory (MB): peak = 9109.523 ; gain = 2435.051 ; free physical = 19382 ; free virtual = 41192
-INFO: [Common 17-83] Releasing license: Implementation
-16 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
-place_design completed successfully
-place_design: Time (s): cpu = 00:40:26 ; elapsed = 00:17:47 . Memory (MB): peak = 9109.523 ; gain = 4774.168 ; free physical = 20209 ; free virtual = 42020
-# route_design -no_timing_driven
-Command: route_design -no_timing_driven
-Attempting to get a license for feature 'Implementation' and/or device 'xcvu3p'
-INFO: [Common 17-349] Got license for feature 'Implementation' and/or device 'xcvu3p'
-Running DRC as a precondition to command route_design
-INFO: [DRC 23-27] Running DRC with 8 threads
-INFO: [Vivado_Tcl 4-198] DRC finished with 0 Errors
-INFO: [Vivado_Tcl 4-199] Please refer to the DRC report (report_drc) for more information.
-
-
-Starting Routing Task
-INFO: [Route 35-65] The router was invoked with the '-no_timing_driven' option. The router will operate in resource-optimization mode.
-INFO: [Route 35-254] Multithreading enabled for route_design using a maximum of 8 CPUs
-Checksum: PlaceDB: 8330cf03 ConstDB: 0 ShapeSum: d7341d87 RouteDB: 0
-
-Phase 1 Build RT Design
-Nodegraph reading from file.  Time (s): cpu = 00:00:00.42 ; elapsed = 00:00:00.50 . Memory (MB): peak = 9109.523 ; gain = 0.000 ; free physical = 19764 ; free virtual = 41588
-Phase 1 Build RT Design | Checksum: fae73ebe
-
-Time (s): cpu = 00:00:55 ; elapsed = 00:00:26 . Memory (MB): peak = 9109.523 ; gain = 0.000 ; free physical = 19437 ; free virtual = 41261
-Post Restoration Checksum: NetGraph: a47732ba NumContArr: 56700c04 Constraints: 0 Timing: 0
-
-Phase 2 Router Initialization
-
-Phase 2.1 Fix Topology Constraints
-Phase 2.1 Fix Topology Constraints | Checksum: fae73ebe
-
-Time (s): cpu = 00:01:28 ; elapsed = 00:00:59 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19273 ; free virtual = 41100
-
-Phase 2.2 Pre Route Cleanup
-Phase 2.2 Pre Route Cleanup | Checksum: fae73ebe
-
-Time (s): cpu = 00:01:29 ; elapsed = 00:01:00 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19273 ; free virtual = 41099
-Phase 2 Router Initialization | Checksum: fae73ebe
-
-Time (s): cpu = 00:01:40 ; elapsed = 00:01:02 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19277 ; free virtual = 41103
-INFO: [Route 35-17] Router encountered errors. Please check the log file for details
-
-Time (s): cpu = 00:01:40 ; elapsed = 00:01:02 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19449 ; free virtual = 41276
-INFO: [Common 17-83] Releasing license: Implementation
-8 Infos, 0 Warnings, 0 Critical Warnings and 1 Errors encountered.
-route_design failed
-route_design: Time (s): cpu = 00:04:43 ; elapsed = 00:01:53 . Memory (MB): peak = 9358.660 ; gain = 249.137 ; free physical = 19449 ; free virtual = 41276
-ERROR: [Common 17-39] 'route_design' failed due to earlier errors.
-
-    while executing
-"route_design -no_timing_driven"
-    (file "place_route.tcl" line 31)
-Vivado% 
